@@ -1,0 +1,89 @@
+{
+  "units": "m",
+  "cameraStart": [0, 1.55, 1.35],
+  "scaleAssumptions": [
+    "Demo scene uses estimated dimensions.",
+    "Replace this file with user-specific measurements after processing the floor plan."
+  ],
+  "imageProviders": [
+    {
+      "id": "gpt-image-2",
+      "mode": "edit",
+      "apiKeyEnv": "OPENAI_API_KEY"
+    },
+    {
+      "id": "nano-banana",
+      "mode": "composite",
+      "apiKeyEnv": "NANO_BANANA_API_KEY",
+      "endpointEnv": "NANO_BANANA_ENDPOINT"
+    }
+  ],
+  "rooms": [
+    {
+      "id": "living",
+      "name": "Living Room",
+      "center": [0, 0],
+      "size": [5.8, 4.1],
+      "height": 2.8,
+      "floorMaterial": "#cdbb9e",
+      "wallMaterial": "#f1eee6"
+    },
+    {
+      "id": "bedroom",
+      "name": "Bedroom",
+      "center": [4.4, -0.2],
+      "size": [3.4, 3.4],
+      "height": 2.8,
+      "floorMaterial": "#bfa98a",
+      "wallMaterial": "#ece8df"
+    }
+  ],
+  "openings": [
+    {
+      "roomId": "living",
+      "wall": "east",
+      "type": "open",
+      "offset": -0.2,
+      "width": 1.6
+    },
+    {
+      "roomId": "living",
+      "wall": "south",
+      "type": "window",
+      "offset": -1.4,
+      "width": 1.8
+    }
+  ],
+  "furniture": [
+    {
+      "id": "sofa",
+      "name": "Sofa",
+      "roomId": "living",
+      "center": [-1.2, -1.15],
+      "size": [2.35, 0.92, 0.78],
+      "rotation": 0,
+      "color": "#71827a",
+      "placementAssumption": "Demo sofa placed against the south side of the living room."
+    },
+    {
+      "id": "coffee-table",
+      "name": "Coffee Table",
+      "roomId": "living",
+      "center": [-1.1, 0.1],
+      "size": [1.1, 0.6, 0.42],
+      "rotation": 0,
+      "color": "#8a6d4e",
+      "placementAssumption": "Demo clearance kept in front of sofa."
+    },
+    {
+      "id": "bed",
+      "name": "Bed",
+      "roomId": "bedroom",
+      "center": [4.65, -0.8],
+      "size": [2.0, 1.5, 0.58],
+      "rotation": 1.5708,
+      "color": "#9fa8b6",
+      "placementAssumption": "Demo queen bed uses default dimensions."
+    }
+  ]
+}
