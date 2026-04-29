@@ -3,7 +3,7 @@ import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { Armchair, Camera, Eye, ImageIcon, RotateCcw } from 'lucide-react';
 import { Suspense, useEffect, useMemo, useRef, useState } from 'react';
 import * as THREE from 'three';
-import type { Furniture, Opening, Room, SceneData } from './types';
+import type { FloorPlanOverlay as FloorPlanOverlayData, Furniture, Opening, Room, SceneData } from './types';
 
 type ViewMode = 'walk' | 'top';
 
@@ -57,10 +57,10 @@ export default function App() {
         <ambientLight intensity={0.7} />
         <directionalLight castShadow intensity={1.4} position={[6, 8, 5]} />
         <Suspense fallback={null}>
-          <InteriorScene onSelectFurniture={setSelected} scene={scene} />
+          <InteriorScene onSelectFurniture={setSelected} scene={scene} viewMode={viewMode} />
         </Suspense>
         <Grid
-          args={[24, 24]}
+          args={[30, 30]}
           cellColor="#334155"
           cellSize={0.5}
           fadeDistance={22}
@@ -116,15 +116,18 @@ export default function App() {
 
 function InteriorScene({
   scene,
+  viewMode,
   onSelectFurniture,
 }: {
   scene: SceneData;
+  viewMode: ViewMode;
   onSelectFurniture: (item: Furniture) => void;
 }) {
   const openings = scene.openings || [];
 
   return (
     <group>
+      {viewMode === 'top' && scene.floorPlanOverlay ? <FloorPlanOverlay overlay={scene.floorPlanOverlay} /> : null}
       {scene.rooms.map((room) => (
         <RoomModel key={room.id} openings={openings.filter((opening) => opening.roomId === room.id)} room={room} />
       ))}
@@ -135,30 +138,61 @@ function InteriorScene({
   );
 }
 
+function FloorPlanOverlay({ overlay }: { overlay: FloorPlanOverlayData }) {
+  const texture = useMemo(() => {
+    const loaded = new THREE.TextureLoader().load(overlay.image);
+    loaded.colorSpace = THREE.SRGBColorSpace;
+    return loaded;
+  }, [overlay.image]);
+
+  const [cx, cz] = overlay.center;
+  const [width, depth] = overlay.size;
+
+  return (
+    <mesh position={[cx, 0.045, cz]} rotation={[-Math.PI / 2, 0, overlay.rotation || 0]}>
+      <planeGeometry args={[width, depth]} />
+      <meshBasicMaterial
+        color="#ffffff"
+        depthWrite={false}
+        map={texture}
+        opacity={overlay.opacity ?? 0.35}
+        side={THREE.DoubleSide}
+        transparent
+      />
+    </mesh>
+  );
+}
+
 function RoomModel({ room, openings }: { room: Room; openings: Opening[] }) {
   const [cx, cz] = room.center;
   const [width, depth] = room.size;
   const wallColor = room.wallMaterial || '#f1eee6';
   const floorColor = room.floorMaterial || '#cdbb9e';
-  const halfHeight = room.height / 2;
+  const wallMode = room.wallMode || 'full';
+  const roomOpacity = room.opacity ?? 1;
+  const wallHeight = wallMode === 'low' ? 0.58 : room.height;
+  const halfHeight = wallHeight / 2;
+  const transparent = roomOpacity < 1;
 
-  const walls = [
-    { id: 'north', position: [cx, halfHeight, cz - depth / 2], size: [width, room.height, WALL_THICKNESS] },
-    { id: 'south', position: [cx, halfHeight, cz + depth / 2], size: [width, room.height, WALL_THICKNESS] },
-    { id: 'east', position: [cx + width / 2, halfHeight, cz], size: [WALL_THICKNESS, room.height, depth] },
-    { id: 'west', position: [cx - width / 2, halfHeight, cz], size: [WALL_THICKNESS, room.height, depth] },
-  ] as const;
+  const walls = wallMode === 'none'
+    ? []
+    : [
+        { id: 'north', position: [cx, halfHeight, cz - depth / 2], size: [width, wallHeight, WALL_THICKNESS] },
+        { id: 'south', position: [cx, halfHeight, cz + depth / 2], size: [width, wallHeight, WALL_THICKNESS] },
+        { id: 'east', position: [cx + width / 2, halfHeight, cz], size: [WALL_THICKNESS, wallHeight, depth] },
+        { id: 'west', position: [cx - width / 2, halfHeight, cz], size: [WALL_THICKNESS, wallHeight, depth] },
+      ] as const;
 
   return (
     <group>
       <mesh receiveShadow position={[cx, 0.02, cz]}>
         <boxGeometry args={[width, 0.04, depth]} />
-        <meshStandardMaterial color={floorColor} roughness={0.72} />
+        <meshStandardMaterial color={floorColor} opacity={roomOpacity} roughness={0.72} transparent={transparent} />
       </mesh>
       {walls.map((wall) => (
         <mesh castShadow key={wall.id} position={wall.position as [number, number, number]}>
           <boxGeometry args={wall.size as [number, number, number]} />
-          <meshStandardMaterial color={wallColor} roughness={0.6} />
+          <meshStandardMaterial color={wallColor} opacity={roomOpacity} roughness={0.6} transparent={transparent} />
         </mesh>
       ))}
       {openings.map((opening, index) => (
@@ -178,12 +212,14 @@ function OpeningMarker({ room, opening }: { room: Room; opening: Opening }) {
   const horizontal = opening.wall === 'north' || opening.wall === 'south';
   const x = horizontal ? cx + opening.offset : cx + (opening.wall === 'east' ? width / 2 + 0.01 : -width / 2 - 0.01);
   const z = horizontal ? cz + (opening.wall === 'south' ? depth / 2 + 0.01 : -depth / 2 - 0.01) : cz + opening.offset;
+  const markerHeight = room.wallMode === 'low' ? 0.42 : 1.85;
+  const markerY = room.wallMode === 'low' ? 0.34 : 0.95;
   const markerSize: [number, number, number] = horizontal
-    ? [opening.width, 1.85, 0.04]
-    : [0.04, 1.85, opening.width];
+    ? [opening.width, markerHeight, 0.04]
+    : [0.04, markerHeight, opening.width];
 
   return (
-    <mesh position={[x, 0.95, z]}>
+    <mesh position={[x, markerY, z]}>
       <boxGeometry args={markerSize} />
       <meshBasicMaterial color={color} opacity={0.44} transparent />
     </mesh>
@@ -236,11 +272,11 @@ function CameraController({ mode, scene }: { mode: ViewMode; scene: SceneData })
 
   useEffect(() => {
     if (mode === 'top') {
-      camera.position.set(0, 9, 7);
-      camera.lookAt(0, 0, 0);
+      camera.position.set(0, 15, 10);
+      camera.lookAt(0, 0, 0.45);
       return;
     }
-    const start = scene.cameraStart || [0, 1.55, 4.6];
+    const start = scene.cameraStart || [0, 1.55, 1.35];
     camera.position.set(start[0], start[1], start[2]);
     camera.lookAt(0, 1.3, 0);
   }, [camera, mode, scene.cameraStart]);
@@ -286,5 +322,7 @@ function CameraController({ mode, scene }: { mode: ViewMode; scene: SceneData })
     camera.rotation.set(pitch.current, yaw.current, 0, 'YXZ');
   });
 
-  return mode === 'top' ? <OrbitControls enableDamping makeDefault maxPolarAngle={Math.PI / 2.05} /> : null;
+  return mode === 'top' ? (
+    <OrbitControls enableDamping makeDefault maxDistance={32} maxPolarAngle={Math.PI / 2.05} target={[0, 0, 0.45]} />
+  ) : null;
 }

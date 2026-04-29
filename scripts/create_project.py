@@ -24,6 +24,10 @@ def copy_template(out_dir: Path, force: bool) -> None:
     print("  npm install")
     print("  npm run build")
     print("  npm run dev")
+    print("")
+    print("Bundled demo files:")
+    print("  public/scene.json")
+    print("  public/floorplans/homeplanq.png")
 
 
 def main() -> None:

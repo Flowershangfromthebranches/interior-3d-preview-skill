@@ -24,6 +24,8 @@ Ask for missing high-impact inputs only when needed:
 
 2. **Create structured scene data**
    - Build or request a `scene.json` with rooms, walls, openings, furniture, materials, and image provider config.
+   - For dimensioned floor plans, convert labeled millimeter values to meters and keep the calculation in `scaleAssumptions`.
+   - When exact extraction is uncertain, create a plausible first pass and mark it for manual correction in `scene.json`.
    - Use `references/floorplan-to-3d.md` for room extraction and closed-room modeling.
    - Use `references/furniture-placement.md` for furniture image handling and placement.
 
@@ -38,7 +40,8 @@ Ask for missing high-impact inputs only when needed:
      ```bash
      python scripts/create_project.py --out <target-dir>
      ```
-   - Replace the generated `public/scene.json` with the user-specific scene data.
+   - The generated project includes the `homeplanq.png` sample floor-plan demo and a matching `public/scene.json`.
+   - Replace or manually correct the generated `public/scene.json` for a user-specific project.
    - Build and inspect the preview:
      ```bash
      npm install
@@ -48,7 +51,7 @@ Ask for missing high-impact inputs only when needed:
 
 5. **Validate**
    - First-person camera can move through the model.
-   - Top-down view shows room layout and furniture placement.
+   - Top-down view shows room layout, furniture placement, and floor-plan overlay when configured.
    - Walls form closed rectangular spaces unless the floor plan explicitly shows open boundaries.
    - Furniture is scaled plausibly and does not intersect fixed walls.
    - Image-model outputs are labeled as generated previews, not factual measurements.

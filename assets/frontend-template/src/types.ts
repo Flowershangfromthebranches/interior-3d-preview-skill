@@ -5,9 +5,24 @@ export type ImageProvider = {
   endpointEnv?: string;
 };
 
+export type FloorPlanOverlay = {
+  image: string;
+  center: [number, number];
+  size: [number, number];
+  opacity?: number;
+  rotation?: number;
+};
+
+export type RoomType = 'living' | 'kitchen' | 'bedroom' | 'bath' | 'balcony' | 'utility' | 'other';
+
+export type WallMode = 'full' | 'low' | 'none';
+
 export type Room = {
   id: string;
   name: string;
+  type?: RoomType;
+  wallMode?: WallMode;
+  opacity?: number;
   center: [number, number];
   size: [number, number];
   height: number;
@@ -38,6 +53,7 @@ export type Furniture = {
 export type SceneData = {
   units: 'm' | 'cm' | 'ft';
   cameraStart?: [number, number, number];
+  floorPlanOverlay?: FloorPlanOverlay;
   scaleAssumptions?: string[];
   imageProviders?: ImageProvider[];
   rooms: Room[];
