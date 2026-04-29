@@ -18,7 +18,7 @@ def copy_template(out_dir: Path, force: bool) -> None:
         shutil.rmtree(out_dir)
 
     shutil.copytree(template, out_dir)
-    print(f"Created interior preview project at {out_dir}")
+    print(f"Created hard-renovation preview project at {out_dir}")
     print("Next steps:")
     print(f"  cd {out_dir}")
     print("  npm install")
@@ -27,11 +27,11 @@ def copy_template(out_dir: Path, force: bool) -> None:
     print("")
     print("Bundled demo files:")
     print("  public/scene.json")
-    print("  public/floorplans/homeplanq.png")
+    print("  public/floorplans/apartment-hard-renovation.jpg")
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Create a Three.js interior preview project from the bundled template.")
+    parser = argparse.ArgumentParser(description="Create a Three.js hard-renovation preview project from the bundled template.")
     parser.add_argument("--out", required=True, help="Output project directory")
     parser.add_argument("--force", action="store_true", help="Replace output directory if it already exists")
     args = parser.parse_args()

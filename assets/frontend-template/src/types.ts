@@ -1,3 +1,6 @@
+export type Point2 = [number, number];
+export type Point3 = [number, number, number];
+
 export type ImageProvider = {
   id: 'gpt-image-2' | 'nano-banana' | 'custom';
   mode: 'generate' | 'edit' | 'composite';
@@ -7,43 +10,77 @@ export type ImageProvider = {
 
 export type FloorPlanOverlay = {
   image: string;
-  center: [number, number];
-  size: [number, number];
+  center: Point2;
+  size: Point2;
   opacity?: number;
   rotation?: number;
+  cropPx?: [number, number, number, number];
 };
 
-export type RoomType = 'living' | 'kitchen' | 'bedroom' | 'bath' | 'balcony' | 'utility' | 'other';
+export type RoomType = 'living' | 'kitchen' | 'bedroom' | 'bath' | 'balcony' | 'utility' | 'entry' | 'closet' | 'other';
 
-export type WallMode = 'full' | 'low' | 'none';
+export type StructuralStatus = 'loadBearing' | 'nonLoadBearing' | 'unknown';
 
 export type Room = {
   id: string;
   name: string;
   type?: RoomType;
-  wallMode?: WallMode;
-  opacity?: number;
-  center: [number, number];
-  size: [number, number];
-  height: number;
+  boundary: Point2[];
+  height?: number;
   floorMaterial?: string;
-  wallMaterial?: string;
+  navTarget?: {
+    position: Point3;
+    lookAt: Point3;
+  };
 };
 
-export type Opening = {
-  roomId: string;
-  wall: 'north' | 'south' | 'east' | 'west';
-  type: 'door' | 'window' | 'open';
-  offset: number;
+export type WallSegment = {
+  id: string;
+  name: string;
+  start: Point2;
+  end: Point2;
+  thickness?: number;
+  height?: number;
+  material?: string;
+  roomIds?: string[];
+  structuralStatus: StructuralStatus;
+  demolishable?: boolean;
+  exterior?: boolean;
+};
+
+export type WallOpening = {
+  id: string;
+  wallId: string;
+  kind: 'door' | 'window' | 'passage';
+  label?: string;
+  center: number;
   width: number;
+  height: number;
+  sillHeight: number;
+  swing?: 'leftIn' | 'rightIn' | 'leftOut' | 'rightOut';
+};
+
+export type MeasurementBox = {
+  id: string;
+  label?: string;
+  start: Point2;
+  end: Point2;
+  height?: number;
+};
+
+export type RenovationPlan = {
+  demolishedWallIds: string[];
+  structuralOverrides?: Record<string, StructuralStatus>;
+  measurementBoxes?: MeasurementBox[];
+  notes?: string[];
 };
 
 export type Furniture = {
   id: string;
   name: string;
   roomId: string;
-  center: [number, number];
-  size: [number, number, number];
+  center: Point2;
+  size: Point3;
   rotation?: number;
   color?: string;
   image?: string;
@@ -52,11 +89,16 @@ export type Furniture = {
 
 export type SceneData = {
   units: 'm' | 'cm' | 'ft';
-  cameraStart?: [number, number, number];
+  title?: string;
+  cameraStart?: Point3;
+  defaultHeight?: number;
+  defaultWallThickness?: number;
   floorPlanOverlay?: FloorPlanOverlay;
   scaleAssumptions?: string[];
   imageProviders?: ImageProvider[];
   rooms: Room[];
-  openings?: Opening[];
-  furniture: Furniture[];
+  wallSegments: WallSegment[];
+  wallOpenings?: WallOpening[];
+  renovationPlan?: RenovationPlan;
+  furniture?: Furniture[];
 };

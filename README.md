@@ -1,24 +1,30 @@
-# Interior 3D Preview Skill
+# Interior Hard-Renovation Preview Skill
 
-`interior-3d-preview` is a Codex skill for turning floor plans, room photos, and furniture images into an early navigable 3D interior design preview.
+`interior-3d-preview` is a Codex skill and Three.js template for rough-room hard-renovation previews. It turns a measured floor plan into a navigable 3D shell model with walls, doors, windows, locked structural status, demolition simulation, and area measurement.
 
-The repository includes the installable skill, references for building `scene.json`, and a Vite + React + Three.js template with a bundled `homeplanq.png` demo.
+V3 deliberately removes the soft-furnishing focus. Furniture can change any time; wall removal, openings, appliance niches, and built-in dimensions are the decisions that need clearer engineering preview.
 
-## Use Cases
+## What It Does
 
-- Preview hard decoration layout from a floor plan.
-- Review soft-furnishing ideas with furniture placeholders or generated texture assets.
-- Walk through a room model with a first-person camera.
-- Inspect and correct room geometry in a top-down editor-style view.
-- Prepare prompts and provider configuration for image models such as `gpt-image-2` or `nano-banana`.
+- Builds a 3D rough-room model from floor-plan dimensions.
+- Renders wall segments with real visible door, window, and passage openings.
+- Locks unknown and load-bearing walls by default.
+- Lets users mark a verified non-load-bearing wall and simulate demolition.
+- Keeps the original model immutable; simulated changes live in `renovationPlan`.
+- Supports top-down measurement boxes for length, width, height, area, and volume.
+- Provides room jump buttons for first-person inspection.
 
-## Current Boundaries
+## Safety Boundary
 
-- This is a visualization prototype, not construction documentation.
-- V2 uses manually curated `scene.json` data for the sample floor plan.
-- Rooms are represented as rectangular closed volumes; irregular rooms should be split into rectangles.
-- Furniture is represented by simple boxes, colors, labels, and optional image textures.
-- Image generation is optional. The core template works without API keys.
+This project is not a structural safety tool and does not output construction drawings, beam calculations, or demolition approval. A normal floor plan image cannot reliably identify load-bearing walls.
+
+Default policy:
+
+- `loadBearing`: locked
+- `unknown`: locked
+- `nonLoadBearing`: can be simulated after user confirmation
+
+If structural status is missing, ask the user for developer drawings, property-management notes, designer markup, or engineer confirmation.
 
 ## Repository Layout
 
@@ -28,21 +34,19 @@ The repository includes the installable skill, references for building `scene.js
 ├── agents/openai.yaml
 ├── assets/frontend-template/
 │   ├── public/scene.json
-│   ├── public/floorplans/homeplanq.png
+│   ├── public/floorplans/apartment-hard-renovation.jpg
 │   └── src/
-├── examples/homeplanq/
-│   ├── homeplanq.png
-│   └── scene.json
+├── examples/
+│   ├── apartment-hard-renovation/
+│   └── homeplanq/
 ├── references/
 │   ├── floorplan-to-3d.md
-│   ├── furniture-placement.md
+│   ├── hard-renovation-safety.md
 │   └── image-model-providers.md
 └── scripts/create_project.py
 ```
 
 ## Install The Skill
-
-Clone the repository and copy it into your Codex skills directory:
 
 ```bash
 git clone https://github.com/Flowershangfromthebranches/interior-3d-preview-skill.git
@@ -56,15 +60,13 @@ Validate the installed skill:
 python3 ~/.codex/skills/.system/skill-creator/scripts/quick_validate.py ~/.codex/skills/interior-3d-preview
 ```
 
-If your Codex system skills are installed somewhere else, run `quick_validate.py` from that installation path.
-
 ## Generate The Demo Project
 
 From the repository root:
 
 ```bash
-python3 scripts/create_project.py --out /tmp/interior-preview-homeplanq --force
-cd /tmp/interior-preview-homeplanq
+python3 scripts/create_project.py --out /tmp/interior-hard-renovation-v3 --force
+cd /tmp/interior-hard-renovation-v3
 npm install
 npm run dev
 ```
@@ -72,10 +74,11 @@ npm run dev
 The generated project includes:
 
 - `public/scene.json`
-- `public/floorplans/homeplanq.png`
-- first-person camera controls
-- top-down orbit controls
-- a floor-plan overlay visible only in top-down mode
+- `public/floorplans/apartment-hard-renovation.jpg`
+- wall/opening model
+- demolition plan state
+- measurement tool
+- room navigation
 
 ## Build And Check
 
@@ -86,90 +89,61 @@ npm run build
 
 Use `npm run preview` after building when you want a production preview server.
 
-## Homeplanq Demo
+## Demo
 
-The V2 demo uses `examples/homeplanq/homeplanq.png` as a public sample asset. The matching `scene.json` approximates the labeled plan as about `16.15m x 8.0m`.
+The default V3 demo uses `20180116095635_6875.jpg` as a public sample asset. The scene is manually traced from the visible labels and assumes:
+
+- outer plan envelope: about `15.16m x 11.64m`
+- default ceiling height: `2.8m`
+- default wall thickness: `0.18m`
+- door and window dimensions are approximate
+- every unverified wall starts as locked
 
 Included spaces:
 
-- Living / Dining
-- Kitchen
-- Master Bedroom
-- Bedroom 2
-- Bedroom 3
-- Bathroom West
-- Bathroom East
-- North, living, and south balconies
-
-Included placeholder furniture:
-
-- dining table
-- sofa
-- coffee table
-- kitchen counter
-- three beds
-- bathroom fixtures
-
-The sample is intentionally not construction-grade. It is meant to show the workflow and provide a starting point for manual correction.
+- 书房
+- 次卧北
+- 卫生间
+- 主卧
+- 步入式衣柜
+- 次卧南
+- 客餐厅
+- 玄关 / 门厅
+- 厨房
+- 阳台北
+- 阳台南
+- 管道井
 
 ## Scene Schema Highlights
 
-`SceneData` supports:
+`SceneData` now focuses on hard-renovation data:
 
-- `floorPlanOverlay`: a reference floor-plan image shown in top-down mode
-- `Room.type`: `living`, `kitchen`, `bedroom`, `bath`, `balcony`, `utility`, or `other`
-- `Room.wallMode`: `full`, `low`, or `none`
-- `Room.opacity`: room-level transparency for balconies and reference spaces
-- `imageProviders`: optional image model provider configuration
+- `wallSegments`: explicit wall line segments with height, thickness, and structural status
+- `wallOpenings`: door/window/passage openings tied to wall IDs
+- `renovationPlan`: simulated demolition, structural overrides, measurement boxes
+- `floorPlanOverlay.cropPx`: crop source plan margins before aligning overlay
+- `rooms`: navigation and floor zones, not duplicated wall generators
 
-See `references/floorplan-to-3d.md` for geometry rules.
+See `references/floorplan-to-3d.md` for schema examples and modeling rules.
 
-## Image Model Providers
+## References Used
 
-Provider entries are stored in `scene.json`:
-
-```ts
-type ImageProvider = {
-  id: 'gpt-image-2' | 'nano-banana' | 'custom';
-  mode: 'generate' | 'edit' | 'composite';
-  apiKeyEnv?: string;
-  endpointEnv?: string;
-};
-```
-
-Recommended environment variables:
-
-```bash
-export OPENAI_API_KEY="..."
-export NANO_BANANA_API_KEY="..."
-export NANO_BANANA_ENDPOINT="..."
-```
-
-Do not commit API keys. If no provider is configured, the skill should still produce prompts, `scene.json`, and the Three.js preview.
-
-## Skill Workflow
-
-When invoked by Codex, the skill should:
-
-1. Identify the floor-plan scale and uncertain dimensions.
-2. Produce or refine `scene.json`.
-3. Generate a preview project with `scripts/create_project.py`.
-4. Run typecheck/build.
-5. Report assumptions and placements that need user confirmation.
+- [Three.js Shape](https://threejs.org/docs/pages/Shape.html): shape holes and 2D shape concepts.
+- [Three.js ExtrudeGeometry](https://threejs.org/docs/pages/ExtrudeGeometry.html): extruding 2D shapes into 3D geometry.
+- [buildingSMART IFC OpeningElement](https://standards.buildingsmart.org/IFC/RELEASE/IFC4_1/FINAL/HTML/schema/ifcproductextension/lexical/ifcopeningelement.htm): opening/void concept for building elements.
+- [buildingSMART IFC RelFillsElement](https://ifc43-docs.standards.buildingsmart.org/IFC/RELEASE/IFC4x3/HTML/lexical/IfcRelFillsElement.htm): door/window relationship to an opening.
+- [Planning Portal load-bearing walls](https://www.planningportal.co.uk/permission/common-projects/internal-walls/building-regulations-load-bearing-walls/): structural engineer/surveyor guidance.
 
 ## Contributing
 
-Keep `SKILL.md` concise and put operational details in `references/` or this README. Validate skill changes before opening a pull request:
+Keep `SKILL.md` concise and put operational detail in `references/` or this README.
+
+Before committing:
 
 ```bash
 python3 ~/.codex/skills/.system/skill-creator/scripts/quick_validate.py .
-python3 scripts/create_project.py --out /tmp/interior-preview-homeplanq --force
-```
-
-Then run the generated template checks:
-
-```bash
-cd /tmp/interior-preview-homeplanq
+python3 scripts/create_project.py --out /tmp/interior-hard-renovation-v3 --force
+cd /tmp/interior-hard-renovation-v3
 npm install
 npm run typecheck
 npm run build

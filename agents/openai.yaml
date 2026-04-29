@@ -1,7 +1,7 @@
 interface:
-  display_name: "Interior 3D Preview"
-  short_description: "Generate navigable 3D interior preview prototypes"
+  display_name: "Interior Hard Renovation"
+  short_description: "Generate navigable rough-room renovation previews"
   brand_color: "#0EA5E9"
-  default_prompt: "Use $interior-3d-preview to turn my floor plan, room photos, and furniture images into a navigable 3D interior preview."
+  default_prompt: "Use $interior-3d-preview to turn my floor plan and measured wall data into a navigable hard-renovation 3D preview."
 policy:
   allow_implicit_invocation: true
