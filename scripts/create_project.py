@@ -17,7 +17,11 @@ def copy_template(out_dir: Path, force: bool) -> None:
             raise SystemExit(f"Output already exists: {out_dir}. Pass --force to replace it.")
         shutil.rmtree(out_dir)
 
-    shutil.copytree(template, out_dir)
+    shutil.copytree(
+        template,
+        out_dir,
+        ignore=shutil.ignore_patterns("node_modules", "dist", "package-lock.json", ".DS_Store", "*.tsbuildinfo"),
+    )
     print(f"Created hard-renovation preview project at {out_dir}")
     print("Next steps:")
     print(f"  cd {out_dir}")

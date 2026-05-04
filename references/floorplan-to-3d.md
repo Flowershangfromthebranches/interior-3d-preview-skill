@@ -24,6 +24,22 @@ Use this when converting a floor plan image, sketch, or measured layout into `sc
       "boundary": [[-0.5, -5.0], [3.8, -5.0], [3.8, 4.2], [-0.5, 4.2]]
     }
   ],
+  "wallGraph": {
+    "nodes": [
+      { "id": "n-1", "point": [3.8, -5.0], "source": "trace" },
+      { "id": "n-2", "point": [3.8, 4.2], "source": "trace" }
+    ],
+    "walls": [
+      {
+        "id": "w-living-east",
+        "name": "客餐厅东墙",
+        "startNodeId": "n-1",
+        "endNodeId": "n-2",
+        "structuralStatus": "unknown",
+        "demolishable": false
+      }
+    ]
+  },
   "wallSegments": [
     {
       "id": "w-living-east",
@@ -63,11 +79,20 @@ Use this when converting a floor plan image, sketch, or measured layout into `sc
 
 ## Wall Modeling Rules
 
-- Model walls as explicit `wallSegments`, not as duplicated room boxes.
-- Use one shared wall segment for a wall between two rooms.
+- Model walls as a shared-node `wallGraph`; every physical corner or T-junction should be one reused node.
+- Keep `wallSegments` only for compatibility export from the graph.
+- Use one shared wall line for a wall between two rooms.
 - Set exterior walls, pipe shafts, and structural-looking boundary walls to `loadBearing` or `unknown`; never mark them non-load-bearing without user-supplied proof.
-- Use `start` and `end` in plan coordinates. The renderer computes wall length, angle, and panel geometry.
+- Use `WallNode.point` in plan coordinates. The renderer computes wall length, angle, and panel geometry from node pairs.
+- Split long walls at T-junctions. A partition ending at the middle of another wall must share a node with that wall.
 - Do not remove source walls when simulating demolition. Store changes in `renovationPlan.demolishedWallIds`.
+
+## Upload And Adjustment Rules
+
+- For a new floor plan, ask the user to draw a calibration line on a known dimension and enter the real length in meters.
+- Use the calibrated overlay for tracing; do not treat image pixels as final dimensions without user confirmation.
+- Save user corrections in `localStorage` during editing and export corrected `scene.json` after tracing.
+- If the generated model is wrong, fix the graph data first: move nodes, delete extra walls, add missing walls, then validate.
 
 ## Door And Window Openings
 
@@ -81,6 +106,7 @@ Use this when converting a floor plan image, sketch, or measured layout into `sc
 
 - Floor-plan overlay and 3D wall lines should visually align in top-down mode.
 - Each wall opening must reference a valid `wallId` and fit within that wall length.
+- `scripts/validate_scene.py` should report zero duplicate walls, dangling nodes, overlapping walls, opening errors, and missing room references for bundled demos.
 - Every wall must have a structural status. Use `unknown` when not verified.
 - Unknown or load-bearing walls must remain locked until user-supplied structural data changes the status.
 - Measurement boxes should report meters, square meters, and cubic meters.

@@ -1,7 +1,11 @@
 {
   "units": "m",
   "title": "Hard Renovation Demo",
-  "cameraStart": [1.6, 1.55, 0.8],
+  "cameraStart": [
+    1.6,
+    1.55,
+    0.8
+  ],
   "defaultHeight": 2.8,
   "defaultWallThickness": 0.18,
   "scaleAssumptions": [
@@ -13,157 +17,1580 @@
   ],
   "floorPlanOverlay": {
     "image": "/floorplans/apartment-hard-renovation.jpg",
-    "center": [0, 0.08],
-    "size": [15.16, 11.64],
+    "center": [
+      0,
+      0.08
+    ],
+    "size": [
+      15.16,
+      11.64
+    ],
     "opacity": 0.34,
-    "cropPx": [38, 86, 760, 724]
+    "cropPx": [
+      38,
+      86,
+      760,
+      724
+    ]
   },
   "rooms": [
     {
       "id": "study",
       "name": "书房",
       "type": "bedroom",
-      "boundary": [[-7.18, -5.08], [-3.55, -5.08], [-3.55, -2.1], [-7.18, -2.1]],
+      "boundary": [
+        [
+          -7.18,
+          -5.08
+        ],
+        [
+          -3.55,
+          -5.08
+        ],
+        [
+          -3.55,
+          -2.1
+        ],
+        [
+          -7.18,
+          -2.1
+        ]
+      ],
       "floorMaterial": "#9f5827",
-      "navTarget": { "position": [-5.4, 1.55, -3.5], "lookAt": [-4.1, 1.35, -3.1] }
+      "navTarget": {
+        "position": [
+          -5.4,
+          1.55,
+          -3.5
+        ],
+        "lookAt": [
+          -4.1,
+          1.35,
+          -3.1
+        ]
+      }
     },
     {
       "id": "north-bedroom",
       "name": "次卧北",
       "type": "bedroom",
-      "boundary": [[-3.55, -5.08], [-0.12, -5.08], [-0.12, -2.04], [-3.55, -2.04]],
+      "boundary": [
+        [
+          -3.55,
+          -5.08
+        ],
+        [
+          -0.12,
+          -5.08
+        ],
+        [
+          -0.12,
+          -2.04
+        ],
+        [
+          -3.55,
+          -2.04
+        ]
+      ],
       "floorMaterial": "#c97532",
-      "navTarget": { "position": [-2.0, 1.55, -3.6], "lookAt": [-0.7, 1.35, -2.7] }
+      "navTarget": {
+        "position": [
+          -2.0,
+          1.55,
+          -3.6
+        ],
+        "lookAt": [
+          -0.7,
+          1.35,
+          -2.7
+        ]
+      }
     },
     {
       "id": "bath",
       "name": "卫生间",
       "type": "bath",
-      "boundary": [[-7.18, -2.1], [-5.0, -2.1], [-5.0, 0.38], [-7.18, 0.38]],
+      "boundary": [
+        [
+          -7.18,
+          -2.1
+        ],
+        [
+          -5.0,
+          -2.1
+        ],
+        [
+          -5.0,
+          0.38
+        ],
+        [
+          -7.18,
+          0.38
+        ]
+      ],
       "floorMaterial": "#cbdce0",
-      "navTarget": { "position": [-6.2, 1.55, -0.9], "lookAt": [-5.15, 1.3, -0.2] }
+      "navTarget": {
+        "position": [
+          -6.2,
+          1.55,
+          -0.9
+        ],
+        "lookAt": [
+          -5.15,
+          1.3,
+          -0.2
+        ]
+      }
     },
     {
       "id": "master",
       "name": "主卧",
       "type": "bedroom",
-      "boundary": [[-7.18, 0.38], [-3.55, 0.38], [-3.55, 5.24], [-7.18, 5.24]],
+      "boundary": [
+        [
+          -7.18,
+          0.38
+        ],
+        [
+          -3.55,
+          0.38
+        ],
+        [
+          -3.55,
+          5.24
+        ],
+        [
+          -7.18,
+          5.24
+        ]
+      ],
       "floorMaterial": "#d98238",
-      "navTarget": { "position": [-5.6, 1.55, 3.6], "lookAt": [-4.0, 1.3, 2.6] }
+      "navTarget": {
+        "position": [
+          -5.6,
+          1.55,
+          3.6
+        ],
+        "lookAt": [
+          -4.0,
+          1.3,
+          2.6
+        ]
+      }
     },
     {
       "id": "closet",
       "name": "步入式衣柜",
       "type": "closet",
-      "boundary": [[-4.82, -0.86], [-3.18, -0.86], [-3.18, 0.62], [-4.82, 0.62]],
+      "boundary": [
+        [
+          -4.82,
+          -0.86
+        ],
+        [
+          -3.18,
+          -0.86
+        ],
+        [
+          -3.18,
+          0.62
+        ],
+        [
+          -4.82,
+          0.62
+        ]
+      ],
       "floorMaterial": "#ce7a36",
-      "navTarget": { "position": [-4.1, 1.55, -0.1], "lookAt": [-3.2, 1.3, 0.1] }
+      "navTarget": {
+        "position": [
+          -4.1,
+          1.55,
+          -0.1
+        ],
+        "lookAt": [
+          -3.2,
+          1.3,
+          0.1
+        ]
+      }
     },
     {
       "id": "south-bedroom",
       "name": "次卧南",
       "type": "bedroom",
-      "boundary": [[-3.55, 0.38], [-0.52, 0.38], [-0.52, 5.24], [-3.55, 5.24]],
+      "boundary": [
+        [
+          -3.55,
+          0.38
+        ],
+        [
+          -0.52,
+          0.38
+        ],
+        [
+          -0.52,
+          5.24
+        ],
+        [
+          -3.55,
+          5.24
+        ]
+      ],
       "floorMaterial": "#d98238",
-      "navTarget": { "position": [-2.2, 1.55, 3.5], "lookAt": [-0.85, 1.3, 2.4] }
+      "navTarget": {
+        "position": [
+          -2.2,
+          1.55,
+          3.5
+        ],
+        "lookAt": [
+          -0.85,
+          1.3,
+          2.4
+        ]
+      }
     },
     {
       "id": "living",
       "name": "客餐厅",
       "type": "living",
-      "boundary": [[-0.52, -5.08], [3.86, -5.08], [3.86, 4.25], [-0.52, 4.25]],
+      "boundary": [
+        [
+          -0.52,
+          -5.08
+        ],
+        [
+          3.86,
+          -5.08
+        ],
+        [
+          3.86,
+          4.25
+        ],
+        [
+          -0.52,
+          4.25
+        ]
+      ],
       "floorMaterial": "#e6dfc2",
-      "navTarget": { "position": [1.1, 1.55, 0.7], "lookAt": [2.6, 1.35, -1.6] }
+      "navTarget": {
+        "position": [
+          1.1,
+          1.55,
+          0.7
+        ],
+        "lookAt": [
+          2.6,
+          1.35,
+          -1.6
+        ]
+      }
     },
     {
       "id": "entry",
       "name": "玄关 / 门厅",
       "type": "entry",
-      "boundary": [[3.86, -1.58], [7.35, -1.58], [7.35, 1.1], [3.86, 1.1]],
+      "boundary": [
+        [
+          3.86,
+          -1.58
+        ],
+        [
+          7.35,
+          -1.58
+        ],
+        [
+          7.35,
+          1.1
+        ],
+        [
+          3.86,
+          1.1
+        ]
+      ],
       "floorMaterial": "#d7d3c5",
-      "navTarget": { "position": [5.6, 1.55, -0.25], "lookAt": [4.0, 1.3, -0.2] }
+      "navTarget": {
+        "position": [
+          5.6,
+          1.55,
+          -0.25
+        ],
+        "lookAt": [
+          4.0,
+          1.3,
+          -0.2
+        ]
+      }
     },
     {
       "id": "kitchen",
       "name": "厨房",
       "type": "kitchen",
-      "boundary": [[5.34, -4.55], [7.35, -4.55], [7.35, -1.58], [5.34, -1.58]],
+      "boundary": [
+        [
+          5.34,
+          -4.55
+        ],
+        [
+          7.35,
+          -4.55
+        ],
+        [
+          7.35,
+          -1.58
+        ],
+        [
+          5.34,
+          -1.58
+        ]
+      ],
       "floorMaterial": "#d9d9d4",
-      "navTarget": { "position": [6.35, 1.55, -3.1], "lookAt": [6.1, 1.3, -1.7] }
+      "navTarget": {
+        "position": [
+          6.35,
+          1.55,
+          -3.1
+        ],
+        "lookAt": [
+          6.1,
+          1.3,
+          -1.7
+        ]
+      }
     },
     {
       "id": "north-balcony",
       "name": "阳台北",
       "type": "balcony",
-      "boundary": [[0.22, -5.84], [3.86, -5.84], [3.86, -5.08], [0.22, -5.08]],
+      "boundary": [
+        [
+          0.22,
+          -5.84
+        ],
+        [
+          3.86,
+          -5.84
+        ],
+        [
+          3.86,
+          -5.08
+        ],
+        [
+          0.22,
+          -5.08
+        ]
+      ],
       "floorMaterial": "#b7b3a5",
-      "navTarget": { "position": [2.0, 1.55, -5.5], "lookAt": [2.0, 1.25, -4.2] }
+      "navTarget": {
+        "position": [
+          2.0,
+          1.55,
+          -5.5
+        ],
+        "lookAt": [
+          2.0,
+          1.25,
+          -4.2
+        ]
+      }
     },
     {
       "id": "south-balcony",
       "name": "阳台南",
       "type": "balcony",
-      "boundary": [[3.86, 1.1], [7.35, 1.1], [7.35, 5.24], [3.86, 5.24]],
+      "boundary": [
+        [
+          3.86,
+          1.1
+        ],
+        [
+          7.35,
+          1.1
+        ],
+        [
+          7.35,
+          5.24
+        ],
+        [
+          3.86,
+          5.24
+        ]
+      ],
       "floorMaterial": "#b7b3a5",
-      "navTarget": { "position": [5.6, 1.55, 3.6], "lookAt": [4.2, 1.25, 2.0] }
+      "navTarget": {
+        "position": [
+          5.6,
+          1.55,
+          3.6
+        ],
+        "lookAt": [
+          4.2,
+          1.25,
+          2.0
+        ]
+      }
     },
     {
       "id": "pipes",
       "name": "管道井",
       "type": "utility",
-      "boundary": [[-0.12, -5.08], [0.22, -5.08], [0.22, -2.04], [-0.12, -2.04]],
+      "boundary": [
+        [
+          -0.12,
+          -5.08
+        ],
+        [
+          0.22,
+          -5.08
+        ],
+        [
+          0.22,
+          -2.04
+        ],
+        [
+          -0.12,
+          -2.04
+        ]
+      ],
       "floorMaterial": "#d7e1df"
     }
   ],
   "wallSegments": [
-    { "id": "w-north-left", "name": "北侧外墙-卧室区", "start": [-7.18, -5.08], "end": [-0.12, -5.08], "structuralStatus": "loadBearing", "demolishable": false, "exterior": true, "roomIds": ["study", "north-bedroom"] },
-    { "id": "w-north-balcony", "name": "北阳台外墙", "start": [0.22, -5.84], "end": [3.86, -5.84], "structuralStatus": "loadBearing", "demolishable": false, "exterior": true, "roomIds": ["north-balcony"] },
-    { "id": "w-living-north", "name": "客厅北侧阳台墙", "start": [0.22, -5.08], "end": [3.86, -5.08], "structuralStatus": "unknown", "demolishable": false, "roomIds": ["living", "north-balcony"] },
-    { "id": "w-kitchen-north", "name": "厨房北侧外墙", "start": [5.34, -4.55], "end": [7.35, -4.55], "structuralStatus": "loadBearing", "demolishable": false, "exterior": true, "roomIds": ["kitchen"] },
-    { "id": "w-kitchen-east", "name": "厨房东侧外墙", "start": [7.35, -4.55], "end": [7.35, -1.58], "structuralStatus": "loadBearing", "demolishable": false, "exterior": true, "roomIds": ["kitchen"] },
-    { "id": "w-entry-east", "name": "门厅东侧外墙", "start": [7.35, -1.58], "end": [7.35, 1.1], "structuralStatus": "loadBearing", "demolishable": false, "exterior": true, "roomIds": ["entry"] },
-    { "id": "w-balcony-east", "name": "南阳台东侧外墙", "start": [7.35, 1.1], "end": [7.35, 5.24], "structuralStatus": "loadBearing", "demolishable": false, "exterior": true, "roomIds": ["south-balcony"] },
-    { "id": "w-south-balcony", "name": "南阳台南侧外墙", "start": [3.86, 5.24], "end": [7.35, 5.24], "structuralStatus": "loadBearing", "demolishable": false, "exterior": true, "roomIds": ["south-balcony"] },
-    { "id": "w-south-bedrooms", "name": "南侧外墙-卧室区", "start": [-7.18, 5.24], "end": [-0.52, 5.24], "structuralStatus": "loadBearing", "demolishable": false, "exterior": true, "roomIds": ["master", "south-bedroom"] },
-    { "id": "w-west", "name": "西侧外墙", "start": [-7.18, -5.08], "end": [-7.18, 5.24], "structuralStatus": "loadBearing", "demolishable": false, "exterior": true, "roomIds": ["study", "bath", "master"] },
-    { "id": "w-study-east", "name": "书房与次卧隔墙", "start": [-3.55, -5.08], "end": [-3.55, -2.1], "structuralStatus": "unknown", "demolishable": false, "roomIds": ["study", "north-bedroom"] },
-    { "id": "w-study-south", "name": "书房南墙", "start": [-7.18, -2.1], "end": [-3.55, -2.1], "structuralStatus": "unknown", "demolishable": false, "roomIds": ["study"] },
-    { "id": "w-north-bedroom-east", "name": "次卧北东墙", "start": [-0.12, -5.08], "end": [-0.12, -2.04], "structuralStatus": "unknown", "demolishable": false, "roomIds": ["north-bedroom", "pipes"] },
-    { "id": "w-north-bedroom-south", "name": "次卧北南墙", "start": [-3.55, -2.04], "end": [-0.12, -2.04], "structuralStatus": "unknown", "demolishable": false, "roomIds": ["north-bedroom"] },
-    { "id": "w-bath-east", "name": "卫生间东墙", "start": [-5.0, -2.1], "end": [-5.0, 0.38], "structuralStatus": "unknown", "demolishable": false, "roomIds": ["bath"] },
-    { "id": "w-bath-south", "name": "卫生间南墙", "start": [-7.18, 0.38], "end": [-5.0, 0.38], "structuralStatus": "unknown", "demolishable": false, "roomIds": ["bath", "master"] },
-    { "id": "w-master-east", "name": "主卧东墙", "start": [-3.55, 0.38], "end": [-3.55, 5.24], "structuralStatus": "unknown", "demolishable": false, "roomIds": ["master", "south-bedroom"] },
-    { "id": "w-south-bedroom-east", "name": "次卧南东墙", "start": [-0.52, 0.38], "end": [-0.52, 5.24], "structuralStatus": "unknown", "demolishable": false, "roomIds": ["south-bedroom", "living"] },
-    { "id": "w-living-west", "name": "客餐厅西墙", "start": [-0.52, -2.04], "end": [-0.52, 4.25], "structuralStatus": "unknown", "demolishable": false, "roomIds": ["living"] },
-    { "id": "w-living-east", "name": "客餐厅东墙", "start": [3.86, -5.08], "end": [3.86, 4.25], "structuralStatus": "unknown", "demolishable": false, "roomIds": ["living", "entry", "south-balcony"] },
-    { "id": "w-living-south", "name": "客厅南侧阳台墙", "start": [-0.52, 4.25], "end": [3.86, 4.25], "structuralStatus": "unknown", "demolishable": false, "roomIds": ["living"] },
-    { "id": "w-kitchen-west", "name": "厨房西墙", "start": [5.34, -4.55], "end": [5.34, -1.58], "structuralStatus": "unknown", "demolishable": false, "roomIds": ["kitchen", "entry"] },
-    { "id": "w-entry-south", "name": "门厅南墙", "start": [3.86, 1.1], "end": [7.35, 1.1], "structuralStatus": "unknown", "demolishable": false, "roomIds": ["entry", "south-balcony"] },
-    { "id": "w-closet-west", "name": "衣柜西墙", "start": [-4.82, -0.86], "end": [-4.82, 0.62], "structuralStatus": "unknown", "demolishable": false, "roomIds": ["closet"] },
-    { "id": "w-closet-north", "name": "衣柜北墙", "start": [-4.82, -0.86], "end": [-3.18, -0.86], "structuralStatus": "unknown", "demolishable": false, "roomIds": ["closet"] },
-    { "id": "w-closet-east", "name": "衣柜东墙", "start": [-3.18, -0.86], "end": [-3.18, 0.62], "structuralStatus": "unknown", "demolishable": false, "roomIds": ["closet"] },
-    { "id": "w-closet-south", "name": "衣柜南墙", "start": [-4.82, 0.62], "end": [-3.18, 0.62], "structuralStatus": "unknown", "demolishable": false, "roomIds": ["closet"] }
+    {
+      "id": "w-balcony-east",
+      "name": "南阳台东侧外墙",
+      "start": [
+        7.35,
+        1.1
+      ],
+      "end": [
+        7.35,
+        5.24
+      ],
+      "roomIds": [
+        "south-balcony"
+      ],
+      "structuralStatus": "loadBearing",
+      "demolishable": false,
+      "exterior": true
+    },
+    {
+      "id": "w-bath-east",
+      "name": "卫生间东墙",
+      "start": [
+        -5.0,
+        -2.1
+      ],
+      "end": [
+        -5.0,
+        0.38
+      ],
+      "roomIds": [
+        "bath"
+      ],
+      "structuralStatus": "unknown",
+      "demolishable": false,
+      "exterior": false
+    },
+    {
+      "id": "w-closet-east",
+      "name": "衣柜东墙",
+      "start": [
+        -3.18,
+        -0.86
+      ],
+      "end": [
+        -3.18,
+        0.62
+      ],
+      "roomIds": [
+        "closet"
+      ],
+      "structuralStatus": "unknown",
+      "demolishable": false,
+      "exterior": false
+    },
+    {
+      "id": "w-closet-north",
+      "name": "衣柜北墙",
+      "start": [
+        -4.82,
+        -0.86
+      ],
+      "end": [
+        -3.18,
+        -0.86
+      ],
+      "roomIds": [
+        "closet"
+      ],
+      "structuralStatus": "unknown",
+      "demolishable": false,
+      "exterior": false
+    },
+    {
+      "id": "w-closet-south-p1",
+      "name": "衣柜南墙",
+      "start": [
+        -4.82,
+        0.62
+      ],
+      "end": [
+        -3.55,
+        0.62
+      ],
+      "roomIds": [
+        "closet"
+      ],
+      "structuralStatus": "unknown",
+      "demolishable": false,
+      "exterior": false
+    },
+    {
+      "id": "w-closet-south-p2",
+      "name": "衣柜南墙",
+      "start": [
+        -3.55,
+        0.62
+      ],
+      "end": [
+        -3.18,
+        0.62
+      ],
+      "roomIds": [
+        "closet"
+      ],
+      "structuralStatus": "unknown",
+      "demolishable": false,
+      "exterior": false
+    },
+    {
+      "id": "w-closet-west-p1",
+      "name": "衣柜西墙",
+      "start": [
+        -4.82,
+        -0.86
+      ],
+      "end": [
+        -4.82,
+        0.38
+      ],
+      "roomIds": [
+        "closet"
+      ],
+      "structuralStatus": "unknown",
+      "demolishable": false,
+      "exterior": false
+    },
+    {
+      "id": "w-closet-west-p2",
+      "name": "衣柜西墙",
+      "start": [
+        -4.82,
+        0.38
+      ],
+      "end": [
+        -4.82,
+        0.62
+      ],
+      "roomIds": [
+        "closet"
+      ],
+      "structuralStatus": "unknown",
+      "demolishable": false,
+      "exterior": false
+    },
+    {
+      "id": "w-entry-east",
+      "name": "门厅东侧外墙",
+      "start": [
+        7.35,
+        -1.58
+      ],
+      "end": [
+        7.35,
+        1.1
+      ],
+      "roomIds": [
+        "entry"
+      ],
+      "structuralStatus": "loadBearing",
+      "demolishable": false,
+      "exterior": true
+    },
+    {
+      "id": "w-entry-south",
+      "name": "门厅南墙",
+      "start": [
+        3.86,
+        1.1
+      ],
+      "end": [
+        7.35,
+        1.1
+      ],
+      "roomIds": [
+        "entry",
+        "south-balcony"
+      ],
+      "structuralStatus": "unknown",
+      "demolishable": false,
+      "exterior": false
+    },
+    {
+      "id": "w-kitchen-east",
+      "name": "厨房/北侧东外墙",
+      "start": [
+        7.35,
+        -5.08
+      ],
+      "end": [
+        7.35,
+        -1.58
+      ],
+      "roomIds": [
+        "kitchen",
+        "north-bedroom"
+      ],
+      "structuralStatus": "loadBearing",
+      "demolishable": false,
+      "exterior": true
+    },
+    {
+      "id": "w-kitchen-north-ext",
+      "name": "厨房北外墙",
+      "start": [
+        5.34,
+        -4.55
+      ],
+      "end": [
+        7.35,
+        -5.08
+      ],
+      "roomIds": [
+        "kitchen"
+      ],
+      "structuralStatus": "loadBearing",
+      "demolishable": false,
+      "exterior": true
+    },
+    {
+      "id": "w-kitchen-northwest",
+      "name": "厨房西北外墙",
+      "start": [
+        5.34,
+        -5.08
+      ],
+      "end": [
+        5.34,
+        -4.55
+      ],
+      "roomIds": [
+        "kitchen"
+      ],
+      "structuralStatus": "loadBearing",
+      "demolishable": false,
+      "exterior": true
+    },
+    {
+      "id": "w-kitchen-south",
+      "name": "厨房南墙",
+      "start": [
+        5.34,
+        -1.58
+      ],
+      "end": [
+        7.35,
+        -1.58
+      ],
+      "roomIds": [
+        "kitchen",
+        "entry"
+      ],
+      "structuralStatus": "unknown",
+      "demolishable": false,
+      "exterior": false
+    },
+    {
+      "id": "w-kitchen-west",
+      "name": "厨房西墙",
+      "start": [
+        5.34,
+        -4.55
+      ],
+      "end": [
+        5.34,
+        -1.58
+      ],
+      "roomIds": [
+        "kitchen",
+        "entry"
+      ],
+      "structuralStatus": "unknown",
+      "demolishable": false,
+      "exterior": false
+    },
+    {
+      "id": "w-living-east-p1",
+      "name": "客餐厅东墙",
+      "start": [
+        3.86,
+        -5.08
+      ],
+      "end": [
+        3.86,
+        1.1
+      ],
+      "roomIds": [
+        "living",
+        "entry",
+        "south-balcony"
+      ],
+      "structuralStatus": "unknown",
+      "demolishable": false,
+      "exterior": false
+    },
+    {
+      "id": "w-living-east-p2",
+      "name": "客餐厅东墙",
+      "start": [
+        3.86,
+        1.1
+      ],
+      "end": [
+        3.86,
+        4.25
+      ],
+      "roomIds": [
+        "living",
+        "entry",
+        "south-balcony"
+      ],
+      "structuralStatus": "unknown",
+      "demolishable": false,
+      "exterior": false
+    },
+    {
+      "id": "w-living-north",
+      "name": "北侧外墙-客厅段",
+      "start": [
+        0.22,
+        -5.08
+      ],
+      "end": [
+        3.86,
+        -5.08
+      ],
+      "roomIds": [
+        "living",
+        "north-balcony"
+      ],
+      "structuralStatus": "unknown",
+      "demolishable": false,
+      "exterior": true
+    },
+    {
+      "id": "w-living-south",
+      "name": "客厅南侧阳台墙",
+      "start": [
+        -0.52,
+        4.25
+      ],
+      "end": [
+        3.86,
+        4.25
+      ],
+      "roomIds": [
+        "living"
+      ],
+      "structuralStatus": "unknown",
+      "demolishable": false,
+      "exterior": false
+    },
+    {
+      "id": "w-living-west-p1",
+      "name": "客餐厅西墙",
+      "start": [
+        -0.52,
+        -2.04
+      ],
+      "end": [
+        -0.52,
+        0.38
+      ],
+      "roomIds": [
+        "living"
+      ],
+      "structuralStatus": "unknown",
+      "demolishable": false,
+      "exterior": false
+    },
+    {
+      "id": "w-master-east-p1",
+      "name": "主卧东墙",
+      "start": [
+        -3.55,
+        0.38
+      ],
+      "end": [
+        -3.55,
+        0.62
+      ],
+      "roomIds": [
+        "master",
+        "south-bedroom"
+      ],
+      "structuralStatus": "unknown",
+      "demolishable": false,
+      "exterior": false
+    },
+    {
+      "id": "w-master-east-p2",
+      "name": "主卧东墙",
+      "start": [
+        -3.55,
+        0.62
+      ],
+      "end": [
+        -3.55,
+        5.24
+      ],
+      "roomIds": [
+        "master",
+        "south-bedroom"
+      ],
+      "structuralStatus": "unknown",
+      "demolishable": false,
+      "exterior": false
+    },
+    {
+      "id": "w-master-north-p2",
+      "name": "主卧北墙",
+      "start": [
+        -5.0,
+        0.38
+      ],
+      "end": [
+        -4.82,
+        0.38
+      ],
+      "roomIds": [
+        "master"
+      ],
+      "structuralStatus": "unknown",
+      "demolishable": false,
+      "exterior": false
+    },
+    {
+      "id": "w-master-north-p3",
+      "name": "主卧北墙",
+      "start": [
+        -4.82,
+        0.38
+      ],
+      "end": [
+        -3.55,
+        0.38
+      ],
+      "roomIds": [
+        "master"
+      ],
+      "structuralStatus": "unknown",
+      "demolishable": false,
+      "exterior": false
+    },
+    {
+      "id": "w-north-balcony",
+      "name": "北阳台外墙",
+      "start": [
+        0.22,
+        -5.84
+      ],
+      "end": [
+        3.86,
+        -5.84
+      ],
+      "roomIds": [
+        "north-balcony"
+      ],
+      "structuralStatus": "loadBearing",
+      "demolishable": false,
+      "exterior": true
+    },
+    {
+      "id": "w-north-balcony-east",
+      "name": "北阳台东侧外墙",
+      "start": [
+        3.86,
+        -5.08
+      ],
+      "end": [
+        3.86,
+        -5.84
+      ],
+      "roomIds": [
+        "north-balcony"
+      ],
+      "structuralStatus": "loadBearing",
+      "demolishable": false,
+      "exterior": true
+    },
+    {
+      "id": "w-north-balcony-west",
+      "name": "北阳台西侧外墙",
+      "start": [
+        0.22,
+        -5.08
+      ],
+      "end": [
+        0.22,
+        -5.84
+      ],
+      "roomIds": [
+        "north-balcony"
+      ],
+      "structuralStatus": "loadBearing",
+      "demolishable": false,
+      "exterior": true
+    },
+    {
+      "id": "w-north-bedroom-east",
+      "name": "次卧北东墙",
+      "start": [
+        -0.12,
+        -5.08
+      ],
+      "end": [
+        -0.12,
+        -2.04
+      ],
+      "roomIds": [
+        "north-bedroom",
+        "pipes"
+      ],
+      "structuralStatus": "unknown",
+      "demolishable": false,
+      "exterior": false
+    },
+    {
+      "id": "w-north-bedroom-south-p1",
+      "name": "次卧北南墙",
+      "start": [
+        -3.55,
+        -2.04
+      ],
+      "end": [
+        -0.52,
+        -2.04
+      ],
+      "roomIds": [
+        "north-bedroom"
+      ],
+      "structuralStatus": "unknown",
+      "demolishable": false,
+      "exterior": false
+    },
+    {
+      "id": "w-north-bedroom-south-p2",
+      "name": "次卧北南墙",
+      "start": [
+        -0.52,
+        -2.04
+      ],
+      "end": [
+        -0.12,
+        -2.04
+      ],
+      "roomIds": [
+        "north-bedroom"
+      ],
+      "structuralStatus": "unknown",
+      "demolishable": false,
+      "exterior": false
+    },
+    {
+      "id": "w-north-left-p1",
+      "name": "北侧外墙-西段",
+      "start": [
+        -7.18,
+        -5.08
+      ],
+      "end": [
+        -3.55,
+        -5.08
+      ],
+      "roomIds": [
+        "study",
+        "north-bedroom",
+        "pipes"
+      ],
+      "structuralStatus": "loadBearing",
+      "demolishable": false,
+      "exterior": true
+    },
+    {
+      "id": "w-north-left-p2",
+      "name": "北侧外墙-西段",
+      "start": [
+        -3.55,
+        -5.08
+      ],
+      "end": [
+        -0.12,
+        -5.08
+      ],
+      "roomIds": [
+        "study",
+        "north-bedroom",
+        "pipes"
+      ],
+      "structuralStatus": "loadBearing",
+      "demolishable": false,
+      "exterior": true
+    },
+    {
+      "id": "w-north-left-p3",
+      "name": "北侧外墙-西段",
+      "start": [
+        -0.12,
+        -5.08
+      ],
+      "end": [
+        0.22,
+        -5.08
+      ],
+      "roomIds": [
+        "study",
+        "north-bedroom",
+        "pipes"
+      ],
+      "structuralStatus": "loadBearing",
+      "demolishable": false,
+      "exterior": true
+    },
+    {
+      "id": "w-north-mid",
+      "name": "北侧外墙-中段",
+      "start": [
+        3.86,
+        -5.08
+      ],
+      "end": [
+        5.34,
+        -5.08
+      ],
+      "roomIds": [
+        "living",
+        "kitchen"
+      ],
+      "structuralStatus": "loadBearing",
+      "demolishable": false,
+      "exterior": true
+    },
+    {
+      "id": "w-pipes-east",
+      "name": "管道井东墙",
+      "start": [
+        0.22,
+        -5.08
+      ],
+      "end": [
+        0.22,
+        -2.04
+      ],
+      "roomIds": [
+        "pipes",
+        "living"
+      ],
+      "structuralStatus": "unknown",
+      "demolishable": false,
+      "exterior": false
+    },
+    {
+      "id": "w-pipes-south",
+      "name": "管道井南墙",
+      "start": [
+        -0.12,
+        -2.04
+      ],
+      "end": [
+        0.22,
+        -2.04
+      ],
+      "roomIds": [
+        "pipes",
+        "north-bedroom"
+      ],
+      "structuralStatus": "unknown",
+      "demolishable": false,
+      "exterior": false
+    },
+    {
+      "id": "w-south-balcony",
+      "name": "南阳台南侧外墙",
+      "start": [
+        3.86,
+        5.24
+      ],
+      "end": [
+        7.35,
+        5.24
+      ],
+      "roomIds": [
+        "south-balcony"
+      ],
+      "structuralStatus": "loadBearing",
+      "demolishable": false,
+      "exterior": true
+    },
+    {
+      "id": "w-south-balcony-west",
+      "name": "南阳台西侧墙",
+      "start": [
+        3.86,
+        4.25
+      ],
+      "end": [
+        3.86,
+        5.24
+      ],
+      "roomIds": [
+        "living",
+        "south-balcony"
+      ],
+      "structuralStatus": "unknown",
+      "demolishable": false,
+      "exterior": false
+    },
+    {
+      "id": "w-south-bedroom-east-p2",
+      "name": "次卧南东墙",
+      "start": [
+        -0.52,
+        4.25
+      ],
+      "end": [
+        -0.52,
+        5.24
+      ],
+      "roomIds": [
+        "south-bedroom",
+        "living"
+      ],
+      "structuralStatus": "unknown",
+      "demolishable": false,
+      "exterior": false
+    },
+    {
+      "id": "w-south-bedrooms-p1",
+      "name": "南侧外墙-卧室区",
+      "start": [
+        -7.18,
+        5.24
+      ],
+      "end": [
+        -3.55,
+        5.24
+      ],
+      "roomIds": [
+        "master",
+        "south-bedroom"
+      ],
+      "structuralStatus": "loadBearing",
+      "demolishable": false,
+      "exterior": true
+    },
+    {
+      "id": "w-south-bedrooms-p2",
+      "name": "南侧外墙-卧室区",
+      "start": [
+        -3.55,
+        5.24
+      ],
+      "end": [
+        -0.52,
+        5.24
+      ],
+      "roomIds": [
+        "master",
+        "south-bedroom"
+      ],
+      "structuralStatus": "loadBearing",
+      "demolishable": false,
+      "exterior": true
+    },
+    {
+      "id": "w-south-mid",
+      "name": "南侧外墙-中段",
+      "start": [
+        -0.52,
+        5.24
+      ],
+      "end": [
+        3.86,
+        5.24
+      ],
+      "roomIds": [
+        "south-bedroom",
+        "living",
+        "south-balcony"
+      ],
+      "structuralStatus": "loadBearing",
+      "demolishable": false,
+      "exterior": true
+    },
+    {
+      "id": "w-study-east",
+      "name": "书房与次卧隔墙",
+      "start": [
+        -3.55,
+        -5.08
+      ],
+      "end": [
+        -3.55,
+        -2.1
+      ],
+      "roomIds": [
+        "study",
+        "north-bedroom"
+      ],
+      "structuralStatus": "unknown",
+      "demolishable": false,
+      "exterior": false
+    },
+    {
+      "id": "w-study-south-p1",
+      "name": "书房南墙",
+      "start": [
+        -7.18,
+        -2.1
+      ],
+      "end": [
+        -5.0,
+        -2.1
+      ],
+      "roomIds": [
+        "study"
+      ],
+      "structuralStatus": "unknown",
+      "demolishable": false,
+      "exterior": false
+    },
+    {
+      "id": "w-study-south-p2",
+      "name": "书房南墙",
+      "start": [
+        -5.0,
+        -2.1
+      ],
+      "end": [
+        -3.55,
+        -2.1
+      ],
+      "roomIds": [
+        "study"
+      ],
+      "structuralStatus": "unknown",
+      "demolishable": false,
+      "exterior": false
+    },
+    {
+      "id": "w-west-p1",
+      "name": "西侧外墙",
+      "start": [
+        -7.18,
+        -5.08
+      ],
+      "end": [
+        -7.18,
+        -2.1
+      ],
+      "roomIds": [
+        "study",
+        "bath",
+        "master"
+      ],
+      "structuralStatus": "loadBearing",
+      "demolishable": false,
+      "exterior": true
+    },
+    {
+      "id": "w-west-p2",
+      "name": "西侧外墙",
+      "start": [
+        -7.18,
+        -2.1
+      ],
+      "end": [
+        -7.18,
+        0.38
+      ],
+      "roomIds": [
+        "study",
+        "bath",
+        "master"
+      ],
+      "structuralStatus": "loadBearing",
+      "demolishable": false,
+      "exterior": true
+    },
+    {
+      "id": "w-west-p3",
+      "name": "西侧外墙",
+      "start": [
+        -7.18,
+        0.38
+      ],
+      "end": [
+        -7.18,
+        5.24
+      ],
+      "roomIds": [
+        "study",
+        "bath",
+        "master"
+      ],
+      "structuralStatus": "loadBearing",
+      "demolishable": false,
+      "exterior": true
+    },
+    {
+      "id": "wall--6-5--6-53",
+      "name": "次卧南东墙",
+      "start": [
+        -0.52,
+        0.38
+      ],
+      "end": [
+        -0.52,
+        4.25
+      ],
+      "roomIds": [
+        "south-bedroom",
+        "living"
+      ],
+      "structuralStatus": "unknown",
+      "demolishable": false,
+      "exterior": false
+    },
+    {
+      "id": "wall--62-5--90-5",
+      "name": "卫生间南墙",
+      "start": [
+        -7.18,
+        0.38
+      ],
+      "end": [
+        -5.0,
+        0.38
+      ],
+      "roomIds": [
+        "bath",
+        "master"
+      ],
+      "structuralStatus": "unknown",
+      "demolishable": false,
+      "exterior": false
+    }
   ],
   "wallOpenings": [
-    { "id": "op-study-window", "wallId": "w-north-left", "kind": "window", "label": "书房窗", "center": 1.85, "width": 1.8, "height": 1.1, "sillHeight": 0.9 },
-    { "id": "op-north-bedroom-window", "wallId": "w-north-left", "kind": "window", "label": "次卧北窗", "center": 5.3, "width": 1.65, "height": 1.1, "sillHeight": 0.9 },
-    { "id": "op-living-balcony-north", "wallId": "w-living-north", "kind": "passage", "label": "北阳台推拉门", "center": 1.8, "width": 2.4, "height": 2.15, "sillHeight": 0 },
-    { "id": "op-kitchen-window", "wallId": "w-kitchen-east", "kind": "window", "label": "厨房窗", "center": 1.45, "width": 1.25, "height": 1.05, "sillHeight": 0.9 },
-    { "id": "op-entry-door", "wallId": "w-entry-east", "kind": "door", "label": "入户门", "center": 1.35, "width": 0.95, "height": 2.1, "sillHeight": 0, "swing": "rightIn" },
-    { "id": "op-balcony-window-east", "wallId": "w-balcony-east", "kind": "window", "label": "南阳台侧窗", "center": 1.9, "width": 1.3, "height": 1.1, "sillHeight": 0.9 },
-    { "id": "op-balcony-window-south", "wallId": "w-south-balcony", "kind": "window", "label": "南阳台窗", "center": 2.0, "width": 1.65, "height": 1.1, "sillHeight": 0.9 },
-    { "id": "op-master-window", "wallId": "w-south-bedrooms", "kind": "window", "label": "主卧窗", "center": 1.95, "width": 1.75, "height": 1.1, "sillHeight": 0.9 },
-    { "id": "op-south-bedroom-window", "wallId": "w-south-bedrooms", "kind": "window", "label": "次卧南窗", "center": 5.0, "width": 1.55, "height": 1.1, "sillHeight": 0.9 },
-    { "id": "op-study-door", "wallId": "w-study-south", "kind": "door", "label": "书房门", "center": 2.85, "width": 0.86, "height": 2.1, "sillHeight": 0, "swing": "leftOut" },
-    { "id": "op-north-bedroom-door", "wallId": "w-north-bedroom-south", "kind": "door", "label": "次卧北门", "center": 2.65, "width": 0.86, "height": 2.1, "sillHeight": 0, "swing": "leftOut" },
-    { "id": "op-bath-door", "wallId": "w-bath-east", "kind": "door", "label": "卫生间门", "center": 1.25, "width": 0.78, "height": 2.05, "sillHeight": 0, "swing": "rightOut" },
-    { "id": "op-master-door", "wallId": "w-master-east", "kind": "door", "label": "主卧门", "center": 0.78, "width": 0.86, "height": 2.1, "sillHeight": 0, "swing": "rightOut" },
-    { "id": "op-south-bedroom-door", "wallId": "w-south-bedroom-east", "kind": "door", "label": "次卧南门", "center": 0.72, "width": 0.86, "height": 2.1, "sillHeight": 0, "swing": "rightOut" },
-    { "id": "op-living-kitchen", "wallId": "w-kitchen-west", "kind": "passage", "label": "厨房门洞", "center": 1.9, "width": 0.95, "height": 2.15, "sillHeight": 0 },
-    { "id": "op-living-entry", "wallId": "w-living-east", "kind": "passage", "label": "客厅到玄关", "center": 4.15, "width": 1.8, "height": 2.3, "sillHeight": 0 },
-    { "id": "op-living-balcony-south", "wallId": "w-living-south", "kind": "passage", "label": "南阳台推拉门", "center": 2.1, "width": 2.6, "height": 2.15, "sillHeight": 0 },
-    { "id": "op-entry-balcony", "wallId": "w-entry-south", "kind": "passage", "label": "门厅到阳台", "center": 1.8, "width": 1.0, "height": 2.15, "sillHeight": 0 },
-    { "id": "op-closet-door", "wallId": "w-closet-west", "kind": "door", "label": "衣柜门", "center": 0.8, "width": 0.75, "height": 2.05, "sillHeight": 0, "swing": "leftOut" }
+    {
+      "id": "op-study-window",
+      "wallId": "w-north-left-p1",
+      "kind": "window",
+      "label": "书房窗",
+      "center": 1.85,
+      "width": 1.8,
+      "height": 1.1,
+      "sillHeight": 0.9
+    },
+    {
+      "id": "op-north-bedroom-window",
+      "wallId": "w-north-left-p2",
+      "kind": "window",
+      "label": "次卧北窗",
+      "center": 1.67,
+      "width": 1.65,
+      "height": 1.1,
+      "sillHeight": 0.9
+    },
+    {
+      "id": "op-living-balcony-north",
+      "wallId": "w-living-north",
+      "kind": "passage",
+      "label": "北阳台推拉门",
+      "center": 1.8,
+      "width": 2.4,
+      "height": 2.15,
+      "sillHeight": 0
+    },
+    {
+      "id": "op-kitchen-window",
+      "wallId": "w-kitchen-east",
+      "kind": "window",
+      "label": "厨房窗",
+      "center": 1.45,
+      "width": 1.25,
+      "height": 1.05,
+      "sillHeight": 0.9
+    },
+    {
+      "id": "op-entry-door",
+      "wallId": "w-entry-east",
+      "kind": "door",
+      "label": "入户门",
+      "center": 1.35,
+      "width": 0.95,
+      "height": 2.1,
+      "sillHeight": 0,
+      "swing": "rightIn"
+    },
+    {
+      "id": "op-balcony-window-east",
+      "wallId": "w-balcony-east",
+      "kind": "window",
+      "label": "南阳台侧窗",
+      "center": 1.9,
+      "width": 1.3,
+      "height": 1.1,
+      "sillHeight": 0.9
+    },
+    {
+      "id": "op-balcony-window-south",
+      "wallId": "w-south-balcony",
+      "kind": "window",
+      "label": "南阳台窗",
+      "center": 2.0,
+      "width": 1.65,
+      "height": 1.1,
+      "sillHeight": 0.9
+    },
+    {
+      "id": "op-master-window",
+      "wallId": "w-south-bedrooms-p1",
+      "kind": "window",
+      "label": "主卧窗",
+      "center": 1.95,
+      "width": 1.75,
+      "height": 1.1,
+      "sillHeight": 0.9
+    },
+    {
+      "id": "op-south-bedroom-window",
+      "wallId": "w-south-bedrooms-p2",
+      "kind": "window",
+      "label": "次卧南窗",
+      "center": 1.37,
+      "width": 1.55,
+      "height": 1.1,
+      "sillHeight": 0.9
+    },
+    {
+      "id": "op-study-door",
+      "wallId": "w-study-south-p2",
+      "kind": "door",
+      "label": "书房门",
+      "center": 0.67,
+      "width": 0.86,
+      "height": 2.1,
+      "sillHeight": 0,
+      "swing": "leftOut"
+    },
+    {
+      "id": "op-north-bedroom-door",
+      "wallId": "w-north-bedroom-south-p1",
+      "kind": "door",
+      "label": "次卧北门",
+      "center": 2.65,
+      "width": 0.86,
+      "height": 2.1,
+      "sillHeight": 0,
+      "swing": "leftOut"
+    },
+    {
+      "id": "op-bath-door",
+      "wallId": "w-bath-east",
+      "kind": "door",
+      "label": "卫生间门",
+      "center": 1.25,
+      "width": 0.78,
+      "height": 2.05,
+      "sillHeight": 0,
+      "swing": "rightOut"
+    },
+    {
+      "id": "op-master-door",
+      "wallId": "w-master-east-p2",
+      "kind": "door",
+      "label": "主卧门",
+      "center": 0.54,
+      "width": 0.86,
+      "height": 2.1,
+      "sillHeight": 0,
+      "swing": "rightOut"
+    },
+    {
+      "id": "op-south-bedroom-door",
+      "wallId": "wall--6-5--6-53",
+      "kind": "door",
+      "label": "次卧南门",
+      "center": 0.72,
+      "width": 0.86,
+      "height": 2.1,
+      "sillHeight": 0,
+      "swing": "rightOut"
+    },
+    {
+      "id": "op-living-kitchen",
+      "wallId": "w-kitchen-west",
+      "kind": "passage",
+      "label": "厨房门洞",
+      "center": 1.9,
+      "width": 0.95,
+      "height": 2.15,
+      "sillHeight": 0
+    },
+    {
+      "id": "op-living-entry",
+      "wallId": "w-living-east-p1",
+      "kind": "passage",
+      "label": "客厅到玄关",
+      "center": 4.15,
+      "width": 1.8,
+      "height": 2.3,
+      "sillHeight": 0
+    },
+    {
+      "id": "op-living-balcony-south",
+      "wallId": "w-living-south",
+      "kind": "passage",
+      "label": "南阳台推拉门",
+      "center": 2.1,
+      "width": 2.6,
+      "height": 2.15,
+      "sillHeight": 0
+    },
+    {
+      "id": "op-entry-balcony",
+      "wallId": "w-entry-south",
+      "kind": "passage",
+      "label": "门厅到阳台",
+      "center": 1.8,
+      "width": 1.0,
+      "height": 2.15,
+      "sillHeight": 0
+    },
+    {
+      "id": "op-closet-door",
+      "wallId": "w-closet-west-p1",
+      "kind": "door",
+      "label": "衣柜门",
+      "center": 0.8,
+      "width": 0.75,
+      "height": 2.05,
+      "sillHeight": 0,
+      "swing": "leftOut"
+    }
   ],
   "renovationPlan": {
     "demolishedWallIds": [],
@@ -173,5 +1600,1095 @@
       "No wall may be simulated as demolished until its structural status is supplied as nonLoadBearing."
     ]
   },
-  "furniture": []
+  "furniture": [],
+  "wallGraph": {
+    "nodes": [
+      {
+        "id": "n-1",
+        "point": [
+          7.35,
+          1.1
+        ],
+        "source": "generated"
+      },
+      {
+        "id": "n-2",
+        "point": [
+          7.35,
+          5.24
+        ],
+        "source": "generated"
+      },
+      {
+        "id": "n-3",
+        "point": [
+          -5.0,
+          -2.1
+        ],
+        "source": "generated"
+      },
+      {
+        "id": "n-4",
+        "point": [
+          -5.0,
+          0.38
+        ],
+        "source": "generated"
+      },
+      {
+        "id": "n-5",
+        "point": [
+          -3.18,
+          -0.86
+        ],
+        "source": "generated"
+      },
+      {
+        "id": "n-6",
+        "point": [
+          -3.18,
+          0.62
+        ],
+        "source": "generated"
+      },
+      {
+        "id": "n-7",
+        "point": [
+          -4.82,
+          -0.86
+        ],
+        "source": "generated"
+      },
+      {
+        "id": "n-8",
+        "point": [
+          -4.82,
+          0.62
+        ],
+        "source": "generated"
+      },
+      {
+        "id": "n-9",
+        "point": [
+          -3.55,
+          0.62
+        ],
+        "source": "generated"
+      },
+      {
+        "id": "n-10",
+        "point": [
+          -4.82,
+          0.38
+        ],
+        "source": "generated"
+      },
+      {
+        "id": "n-11",
+        "point": [
+          7.35,
+          -1.58
+        ],
+        "source": "generated"
+      },
+      {
+        "id": "n-12",
+        "point": [
+          3.86,
+          1.1
+        ],
+        "source": "generated"
+      },
+      {
+        "id": "n-13",
+        "point": [
+          7.35,
+          -5.08
+        ],
+        "source": "generated"
+      },
+      {
+        "id": "n-14",
+        "point": [
+          5.34,
+          -4.55
+        ],
+        "source": "generated"
+      },
+      {
+        "id": "n-15",
+        "point": [
+          5.34,
+          -5.08
+        ],
+        "source": "generated"
+      },
+      {
+        "id": "n-16",
+        "point": [
+          5.34,
+          -1.58
+        ],
+        "source": "generated"
+      },
+      {
+        "id": "n-17",
+        "point": [
+          3.86,
+          -5.08
+        ],
+        "source": "generated"
+      },
+      {
+        "id": "n-18",
+        "point": [
+          3.86,
+          4.25
+        ],
+        "source": "generated"
+      },
+      {
+        "id": "n-19",
+        "point": [
+          0.22,
+          -5.08
+        ],
+        "source": "generated"
+      },
+      {
+        "id": "n-20",
+        "point": [
+          -0.52,
+          4.25
+        ],
+        "source": "generated"
+      },
+      {
+        "id": "n-21",
+        "point": [
+          -0.52,
+          -2.04
+        ],
+        "source": "generated"
+      },
+      {
+        "id": "n-22",
+        "point": [
+          -0.52,
+          0.38
+        ],
+        "source": "generated"
+      },
+      {
+        "id": "n-23",
+        "point": [
+          -3.55,
+          0.38
+        ],
+        "source": "generated"
+      },
+      {
+        "id": "n-24",
+        "point": [
+          -3.55,
+          5.24
+        ],
+        "source": "generated"
+      },
+      {
+        "id": "n-25",
+        "point": [
+          0.22,
+          -5.84
+        ],
+        "source": "generated"
+      },
+      {
+        "id": "n-26",
+        "point": [
+          3.86,
+          -5.84
+        ],
+        "source": "generated"
+      },
+      {
+        "id": "n-27",
+        "point": [
+          -0.12,
+          -5.08
+        ],
+        "source": "generated"
+      },
+      {
+        "id": "n-28",
+        "point": [
+          -0.12,
+          -2.04
+        ],
+        "source": "generated"
+      },
+      {
+        "id": "n-29",
+        "point": [
+          -3.55,
+          -2.04
+        ],
+        "source": "generated"
+      },
+      {
+        "id": "n-30",
+        "point": [
+          -7.18,
+          -5.08
+        ],
+        "source": "generated"
+      },
+      {
+        "id": "n-31",
+        "point": [
+          -3.55,
+          -5.08
+        ],
+        "source": "generated"
+      },
+      {
+        "id": "n-32",
+        "point": [
+          0.22,
+          -2.04
+        ],
+        "source": "generated"
+      },
+      {
+        "id": "n-33",
+        "point": [
+          3.86,
+          5.24
+        ],
+        "source": "generated"
+      },
+      {
+        "id": "n-34",
+        "point": [
+          -0.52,
+          5.24
+        ],
+        "source": "generated"
+      },
+      {
+        "id": "n-35",
+        "point": [
+          -7.18,
+          5.24
+        ],
+        "source": "generated"
+      },
+      {
+        "id": "n-36",
+        "point": [
+          -7.18,
+          -2.1
+        ],
+        "source": "generated"
+      },
+      {
+        "id": "n-37",
+        "point": [
+          -7.18,
+          0.38
+        ],
+        "source": "generated"
+      }
+    ],
+    "walls": [
+      {
+        "id": "w-balcony-east",
+        "name": "南阳台东侧外墙",
+        "roomIds": [
+          "south-balcony"
+        ],
+        "structuralStatus": "loadBearing",
+        "demolishable": false,
+        "exterior": true,
+        "sourceSegmentIds": [
+          "w-balcony-east"
+        ],
+        "startNodeId": "n-1",
+        "endNodeId": "n-2"
+      },
+      {
+        "id": "w-bath-east",
+        "name": "卫生间东墙",
+        "roomIds": [
+          "bath"
+        ],
+        "structuralStatus": "unknown",
+        "demolishable": false,
+        "exterior": false,
+        "sourceSegmentIds": [
+          "w-bath-east"
+        ],
+        "startNodeId": "n-3",
+        "endNodeId": "n-4"
+      },
+      {
+        "id": "w-closet-east",
+        "name": "衣柜东墙",
+        "roomIds": [
+          "closet"
+        ],
+        "structuralStatus": "unknown",
+        "demolishable": false,
+        "exterior": false,
+        "sourceSegmentIds": [
+          "w-closet-east"
+        ],
+        "startNodeId": "n-5",
+        "endNodeId": "n-6"
+      },
+      {
+        "id": "w-closet-north",
+        "name": "衣柜北墙",
+        "roomIds": [
+          "closet"
+        ],
+        "structuralStatus": "unknown",
+        "demolishable": false,
+        "exterior": false,
+        "sourceSegmentIds": [
+          "w-closet-north"
+        ],
+        "startNodeId": "n-7",
+        "endNodeId": "n-5"
+      },
+      {
+        "id": "w-closet-south-p1",
+        "name": "衣柜南墙",
+        "roomIds": [
+          "closet"
+        ],
+        "structuralStatus": "unknown",
+        "demolishable": false,
+        "exterior": false,
+        "sourceSegmentIds": [
+          "w-closet-south"
+        ],
+        "startNodeId": "n-8",
+        "endNodeId": "n-9"
+      },
+      {
+        "id": "w-closet-south-p2",
+        "name": "衣柜南墙",
+        "roomIds": [
+          "closet"
+        ],
+        "structuralStatus": "unknown",
+        "demolishable": false,
+        "exterior": false,
+        "sourceSegmentIds": [
+          "w-closet-south"
+        ],
+        "startNodeId": "n-9",
+        "endNodeId": "n-6"
+      },
+      {
+        "id": "w-closet-west-p1",
+        "name": "衣柜西墙",
+        "roomIds": [
+          "closet"
+        ],
+        "structuralStatus": "unknown",
+        "demolishable": false,
+        "exterior": false,
+        "sourceSegmentIds": [
+          "w-closet-west"
+        ],
+        "startNodeId": "n-7",
+        "endNodeId": "n-10"
+      },
+      {
+        "id": "w-closet-west-p2",
+        "name": "衣柜西墙",
+        "roomIds": [
+          "closet"
+        ],
+        "structuralStatus": "unknown",
+        "demolishable": false,
+        "exterior": false,
+        "sourceSegmentIds": [
+          "w-closet-west"
+        ],
+        "startNodeId": "n-10",
+        "endNodeId": "n-8"
+      },
+      {
+        "id": "w-entry-east",
+        "name": "门厅东侧外墙",
+        "roomIds": [
+          "entry"
+        ],
+        "structuralStatus": "loadBearing",
+        "demolishable": false,
+        "exterior": true,
+        "sourceSegmentIds": [
+          "w-entry-east"
+        ],
+        "startNodeId": "n-11",
+        "endNodeId": "n-1"
+      },
+      {
+        "id": "w-entry-south",
+        "name": "门厅南墙",
+        "roomIds": [
+          "entry",
+          "south-balcony"
+        ],
+        "structuralStatus": "unknown",
+        "demolishable": false,
+        "exterior": false,
+        "sourceSegmentIds": [
+          "w-entry-south"
+        ],
+        "startNodeId": "n-12",
+        "endNodeId": "n-1"
+      },
+      {
+        "id": "w-kitchen-east",
+        "name": "厨房/北侧东外墙",
+        "roomIds": [
+          "kitchen",
+          "north-bedroom"
+        ],
+        "structuralStatus": "loadBearing",
+        "demolishable": false,
+        "exterior": true,
+        "sourceSegmentIds": [
+          "w-kitchen-east"
+        ],
+        "startNodeId": "n-13",
+        "endNodeId": "n-11"
+      },
+      {
+        "id": "w-kitchen-north-ext",
+        "name": "厨房北外墙",
+        "roomIds": [
+          "kitchen"
+        ],
+        "structuralStatus": "loadBearing",
+        "demolishable": false,
+        "exterior": true,
+        "sourceSegmentIds": [
+          "w-kitchen-north-ext"
+        ],
+        "startNodeId": "n-14",
+        "endNodeId": "n-13"
+      },
+      {
+        "id": "w-kitchen-northwest",
+        "name": "厨房西北外墙",
+        "roomIds": [
+          "kitchen"
+        ],
+        "structuralStatus": "loadBearing",
+        "demolishable": false,
+        "exterior": true,
+        "sourceSegmentIds": [
+          "w-kitchen-northwest"
+        ],
+        "startNodeId": "n-15",
+        "endNodeId": "n-14"
+      },
+      {
+        "id": "w-kitchen-south",
+        "name": "厨房南墙",
+        "roomIds": [
+          "kitchen",
+          "entry"
+        ],
+        "structuralStatus": "unknown",
+        "demolishable": false,
+        "exterior": false,
+        "sourceSegmentIds": [
+          "w-kitchen-south"
+        ],
+        "startNodeId": "n-16",
+        "endNodeId": "n-11"
+      },
+      {
+        "id": "w-kitchen-west",
+        "name": "厨房西墙",
+        "roomIds": [
+          "kitchen",
+          "entry"
+        ],
+        "structuralStatus": "unknown",
+        "demolishable": false,
+        "exterior": false,
+        "sourceSegmentIds": [
+          "w-kitchen-west"
+        ],
+        "startNodeId": "n-14",
+        "endNodeId": "n-16"
+      },
+      {
+        "id": "w-living-east-p1",
+        "name": "客餐厅东墙",
+        "roomIds": [
+          "living",
+          "entry",
+          "south-balcony"
+        ],
+        "structuralStatus": "unknown",
+        "demolishable": false,
+        "exterior": false,
+        "sourceSegmentIds": [
+          "w-living-east"
+        ],
+        "startNodeId": "n-17",
+        "endNodeId": "n-12"
+      },
+      {
+        "id": "w-living-east-p2",
+        "name": "客餐厅东墙",
+        "roomIds": [
+          "living",
+          "entry",
+          "south-balcony"
+        ],
+        "structuralStatus": "unknown",
+        "demolishable": false,
+        "exterior": false,
+        "sourceSegmentIds": [
+          "w-living-east"
+        ],
+        "startNodeId": "n-12",
+        "endNodeId": "n-18"
+      },
+      {
+        "id": "w-living-north",
+        "name": "北侧外墙-客厅段",
+        "roomIds": [
+          "living",
+          "north-balcony"
+        ],
+        "structuralStatus": "unknown",
+        "demolishable": false,
+        "exterior": true,
+        "sourceSegmentIds": [
+          "w-living-north"
+        ],
+        "startNodeId": "n-19",
+        "endNodeId": "n-17"
+      },
+      {
+        "id": "w-living-south",
+        "name": "客厅南侧阳台墙",
+        "roomIds": [
+          "living"
+        ],
+        "structuralStatus": "unknown",
+        "demolishable": false,
+        "exterior": false,
+        "sourceSegmentIds": [
+          "w-living-south"
+        ],
+        "startNodeId": "n-20",
+        "endNodeId": "n-18"
+      },
+      {
+        "id": "w-living-west-p1",
+        "name": "客餐厅西墙",
+        "roomIds": [
+          "living"
+        ],
+        "structuralStatus": "unknown",
+        "demolishable": false,
+        "exterior": false,
+        "sourceSegmentIds": [
+          "w-living-west"
+        ],
+        "startNodeId": "n-21",
+        "endNodeId": "n-22"
+      },
+      {
+        "id": "w-master-east-p1",
+        "name": "主卧东墙",
+        "roomIds": [
+          "master",
+          "south-bedroom"
+        ],
+        "structuralStatus": "unknown",
+        "demolishable": false,
+        "exterior": false,
+        "sourceSegmentIds": [
+          "w-master-east"
+        ],
+        "startNodeId": "n-23",
+        "endNodeId": "n-9"
+      },
+      {
+        "id": "w-master-east-p2",
+        "name": "主卧东墙",
+        "roomIds": [
+          "master",
+          "south-bedroom"
+        ],
+        "structuralStatus": "unknown",
+        "demolishable": false,
+        "exterior": false,
+        "sourceSegmentIds": [
+          "w-master-east"
+        ],
+        "startNodeId": "n-9",
+        "endNodeId": "n-24"
+      },
+      {
+        "id": "w-master-north-p2",
+        "name": "主卧北墙",
+        "roomIds": [
+          "master"
+        ],
+        "structuralStatus": "unknown",
+        "demolishable": false,
+        "exterior": false,
+        "sourceSegmentIds": [
+          "w-master-north"
+        ],
+        "startNodeId": "n-4",
+        "endNodeId": "n-10"
+      },
+      {
+        "id": "w-master-north-p3",
+        "name": "主卧北墙",
+        "roomIds": [
+          "master"
+        ],
+        "structuralStatus": "unknown",
+        "demolishable": false,
+        "exterior": false,
+        "sourceSegmentIds": [
+          "w-master-north"
+        ],
+        "startNodeId": "n-10",
+        "endNodeId": "n-23"
+      },
+      {
+        "id": "w-north-balcony",
+        "name": "北阳台外墙",
+        "roomIds": [
+          "north-balcony"
+        ],
+        "structuralStatus": "loadBearing",
+        "demolishable": false,
+        "exterior": true,
+        "sourceSegmentIds": [
+          "w-north-balcony"
+        ],
+        "startNodeId": "n-25",
+        "endNodeId": "n-26"
+      },
+      {
+        "id": "w-north-balcony-east",
+        "name": "北阳台东侧外墙",
+        "roomIds": [
+          "north-balcony"
+        ],
+        "structuralStatus": "loadBearing",
+        "demolishable": false,
+        "exterior": true,
+        "sourceSegmentIds": [
+          "w-north-balcony-east"
+        ],
+        "startNodeId": "n-17",
+        "endNodeId": "n-26"
+      },
+      {
+        "id": "w-north-balcony-west",
+        "name": "北阳台西侧外墙",
+        "roomIds": [
+          "north-balcony"
+        ],
+        "structuralStatus": "loadBearing",
+        "demolishable": false,
+        "exterior": true,
+        "sourceSegmentIds": [
+          "w-north-balcony-west"
+        ],
+        "startNodeId": "n-19",
+        "endNodeId": "n-25"
+      },
+      {
+        "id": "w-north-bedroom-east",
+        "name": "次卧北东墙",
+        "roomIds": [
+          "north-bedroom",
+          "pipes"
+        ],
+        "structuralStatus": "unknown",
+        "demolishable": false,
+        "exterior": false,
+        "sourceSegmentIds": [
+          "w-north-bedroom-east"
+        ],
+        "startNodeId": "n-27",
+        "endNodeId": "n-28"
+      },
+      {
+        "id": "w-north-bedroom-south-p1",
+        "name": "次卧北南墙",
+        "roomIds": [
+          "north-bedroom"
+        ],
+        "structuralStatus": "unknown",
+        "demolishable": false,
+        "exterior": false,
+        "sourceSegmentIds": [
+          "w-north-bedroom-south"
+        ],
+        "startNodeId": "n-29",
+        "endNodeId": "n-21"
+      },
+      {
+        "id": "w-north-bedroom-south-p2",
+        "name": "次卧北南墙",
+        "roomIds": [
+          "north-bedroom"
+        ],
+        "structuralStatus": "unknown",
+        "demolishable": false,
+        "exterior": false,
+        "sourceSegmentIds": [
+          "w-north-bedroom-south"
+        ],
+        "startNodeId": "n-21",
+        "endNodeId": "n-28"
+      },
+      {
+        "id": "w-north-left-p1",
+        "name": "北侧外墙-西段",
+        "roomIds": [
+          "study",
+          "north-bedroom",
+          "pipes"
+        ],
+        "structuralStatus": "loadBearing",
+        "demolishable": false,
+        "exterior": true,
+        "sourceSegmentIds": [
+          "w-north-left"
+        ],
+        "startNodeId": "n-30",
+        "endNodeId": "n-31"
+      },
+      {
+        "id": "w-north-left-p2",
+        "name": "北侧外墙-西段",
+        "roomIds": [
+          "study",
+          "north-bedroom",
+          "pipes"
+        ],
+        "structuralStatus": "loadBearing",
+        "demolishable": false,
+        "exterior": true,
+        "sourceSegmentIds": [
+          "w-north-left"
+        ],
+        "startNodeId": "n-31",
+        "endNodeId": "n-27"
+      },
+      {
+        "id": "w-north-left-p3",
+        "name": "北侧外墙-西段",
+        "roomIds": [
+          "study",
+          "north-bedroom",
+          "pipes"
+        ],
+        "structuralStatus": "loadBearing",
+        "demolishable": false,
+        "exterior": true,
+        "sourceSegmentIds": [
+          "w-north-left"
+        ],
+        "startNodeId": "n-27",
+        "endNodeId": "n-19"
+      },
+      {
+        "id": "w-north-mid",
+        "name": "北侧外墙-中段",
+        "roomIds": [
+          "living",
+          "kitchen"
+        ],
+        "structuralStatus": "loadBearing",
+        "demolishable": false,
+        "exterior": true,
+        "sourceSegmentIds": [
+          "w-north-mid"
+        ],
+        "startNodeId": "n-17",
+        "endNodeId": "n-15"
+      },
+      {
+        "id": "w-pipes-east",
+        "name": "管道井东墙",
+        "roomIds": [
+          "pipes",
+          "living"
+        ],
+        "structuralStatus": "unknown",
+        "demolishable": false,
+        "exterior": false,
+        "sourceSegmentIds": [
+          "w-pipes-east"
+        ],
+        "startNodeId": "n-19",
+        "endNodeId": "n-32"
+      },
+      {
+        "id": "w-pipes-south",
+        "name": "管道井南墙",
+        "roomIds": [
+          "pipes",
+          "north-bedroom"
+        ],
+        "structuralStatus": "unknown",
+        "demolishable": false,
+        "exterior": false,
+        "sourceSegmentIds": [
+          "w-pipes-south"
+        ],
+        "startNodeId": "n-28",
+        "endNodeId": "n-32"
+      },
+      {
+        "id": "w-south-balcony",
+        "name": "南阳台南侧外墙",
+        "roomIds": [
+          "south-balcony"
+        ],
+        "structuralStatus": "loadBearing",
+        "demolishable": false,
+        "exterior": true,
+        "sourceSegmentIds": [
+          "w-south-balcony"
+        ],
+        "startNodeId": "n-33",
+        "endNodeId": "n-2"
+      },
+      {
+        "id": "w-south-balcony-west",
+        "name": "南阳台西侧墙",
+        "roomIds": [
+          "living",
+          "south-balcony"
+        ],
+        "structuralStatus": "unknown",
+        "demolishable": false,
+        "exterior": false,
+        "sourceSegmentIds": [
+          "w-south-balcony-west"
+        ],
+        "startNodeId": "n-18",
+        "endNodeId": "n-33"
+      },
+      {
+        "id": "w-south-bedroom-east-p2",
+        "name": "次卧南东墙",
+        "roomIds": [
+          "south-bedroom",
+          "living"
+        ],
+        "structuralStatus": "unknown",
+        "demolishable": false,
+        "exterior": false,
+        "sourceSegmentIds": [
+          "w-south-bedroom-east"
+        ],
+        "startNodeId": "n-20",
+        "endNodeId": "n-34"
+      },
+      {
+        "id": "w-south-bedrooms-p1",
+        "name": "南侧外墙-卧室区",
+        "roomIds": [
+          "master",
+          "south-bedroom"
+        ],
+        "structuralStatus": "loadBearing",
+        "demolishable": false,
+        "exterior": true,
+        "sourceSegmentIds": [
+          "w-south-bedrooms"
+        ],
+        "startNodeId": "n-35",
+        "endNodeId": "n-24"
+      },
+      {
+        "id": "w-south-bedrooms-p2",
+        "name": "南侧外墙-卧室区",
+        "roomIds": [
+          "master",
+          "south-bedroom"
+        ],
+        "structuralStatus": "loadBearing",
+        "demolishable": false,
+        "exterior": true,
+        "sourceSegmentIds": [
+          "w-south-bedrooms"
+        ],
+        "startNodeId": "n-24",
+        "endNodeId": "n-34"
+      },
+      {
+        "id": "w-south-mid",
+        "name": "南侧外墙-中段",
+        "roomIds": [
+          "south-bedroom",
+          "living",
+          "south-balcony"
+        ],
+        "structuralStatus": "loadBearing",
+        "demolishable": false,
+        "exterior": true,
+        "sourceSegmentIds": [
+          "w-south-mid"
+        ],
+        "startNodeId": "n-34",
+        "endNodeId": "n-33"
+      },
+      {
+        "id": "w-study-east",
+        "name": "书房与次卧隔墙",
+        "roomIds": [
+          "study",
+          "north-bedroom"
+        ],
+        "structuralStatus": "unknown",
+        "demolishable": false,
+        "exterior": false,
+        "sourceSegmentIds": [
+          "w-study-east"
+        ],
+        "startNodeId": "n-31",
+        "endNodeId": "n-29"
+      },
+      {
+        "id": "w-study-south-p1",
+        "name": "书房南墙",
+        "roomIds": [
+          "study"
+        ],
+        "structuralStatus": "unknown",
+        "demolishable": false,
+        "exterior": false,
+        "sourceSegmentIds": [
+          "w-study-south"
+        ],
+        "startNodeId": "n-36",
+        "endNodeId": "n-3"
+      },
+      {
+        "id": "w-study-south-p2",
+        "name": "书房南墙",
+        "roomIds": [
+          "study"
+        ],
+        "structuralStatus": "unknown",
+        "demolishable": false,
+        "exterior": false,
+        "sourceSegmentIds": [
+          "w-study-south"
+        ],
+        "startNodeId": "n-3",
+        "endNodeId": "n-29"
+      },
+      {
+        "id": "w-west-p1",
+        "name": "西侧外墙",
+        "roomIds": [
+          "study",
+          "bath",
+          "master"
+        ],
+        "structuralStatus": "loadBearing",
+        "demolishable": false,
+        "exterior": true,
+        "sourceSegmentIds": [
+          "w-west"
+        ],
+        "startNodeId": "n-30",
+        "endNodeId": "n-36"
+      },
+      {
+        "id": "w-west-p2",
+        "name": "西侧外墙",
+        "roomIds": [
+          "study",
+          "bath",
+          "master"
+        ],
+        "structuralStatus": "loadBearing",
+        "demolishable": false,
+        "exterior": true,
+        "sourceSegmentIds": [
+          "w-west"
+        ],
+        "startNodeId": "n-36",
+        "endNodeId": "n-37"
+      },
+      {
+        "id": "w-west-p3",
+        "name": "西侧外墙",
+        "roomIds": [
+          "study",
+          "bath",
+          "master"
+        ],
+        "structuralStatus": "loadBearing",
+        "demolishable": false,
+        "exterior": true,
+        "sourceSegmentIds": [
+          "w-west"
+        ],
+        "startNodeId": "n-37",
+        "endNodeId": "n-35"
+      },
+      {
+        "id": "wall--6-5--6-53",
+        "name": "次卧南东墙",
+        "roomIds": [
+          "south-bedroom",
+          "living"
+        ],
+        "structuralStatus": "unknown",
+        "demolishable": false,
+        "exterior": false,
+        "sourceSegmentIds": [
+          "w-south-bedroom-east",
+          "w-living-west"
+        ],
+        "startNodeId": "n-22",
+        "endNodeId": "n-20"
+      },
+      {
+        "id": "wall--62-5--90-5",
+        "name": "卫生间南墙",
+        "roomIds": [
+          "bath",
+          "master"
+        ],
+        "structuralStatus": "unknown",
+        "demolishable": false,
+        "exterior": false,
+        "sourceSegmentIds": [
+          "w-bath-south",
+          "w-master-north"
+        ],
+        "startNodeId": "n-37",
+        "endNodeId": "n-4"
+      }
+    ]
+  }
 }

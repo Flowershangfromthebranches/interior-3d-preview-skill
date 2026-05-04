@@ -6,7 +6,7 @@ license: MIT
 
 # Interior Hard-Renovation Preview
 
-Create a navigable hard-renovation model from a floor plan. This skill focuses on rough-room engineering decisions: walls, doors, windows, openings, measurements, and demolition planning. It is not a structural safety report or construction drawing.
+Create a navigable hard-renovation model from a floor plan. This skill focuses on rough-room engineering decisions: wall topology, doors, windows, openings, measurements, adjustment, and demolition planning. It is not a structural safety report or construction drawing.
 
 ## Inputs
 
@@ -24,7 +24,8 @@ Ask for missing high-impact inputs when they affect safety or scale:
    - Do not infer demolition safety from wall appearance alone.
 
 2. **Create structured engineering scene data**
-   - Build `scene.json` around `rooms`, `wallSegments`, `wallOpenings`, and `renovationPlan`.
+   - Build `scene.json` around `rooms`, `wallGraph`, `wallOpenings`, and `renovationPlan`.
+   - Use `wallSegments` only as compatibility data; prefer shared-node `wallGraph` for rendering and validation.
    - Use `references/floorplan-to-3d.md` for floor-plan calibration, wall segments, and door/window openings.
    - Use `references/hard-renovation-safety.md` for demolition constraints and wording.
    - Keep original walls immutable; store simulated changes in `renovationPlan`.
@@ -43,12 +44,15 @@ Ask for missing high-impact inputs when they affect safety or scale:
    - Clicking a wall shows dimensions, openings, and structural status.
    - Unknown/load-bearing walls cannot be simulated as demolished.
    - User-marked non-load-bearing walls can be simulated, undone, reset, and exported.
+   - Wall measurement reports length, height, thickness, area, and volume.
    - Measurement boxes report width, depth, height, area, and volume.
+   - `scripts/validate_scene.py public/scene.json` reports no duplicate walls, dangling nodes, or opening errors.
+   - Adjustment mode can drag nodes, wall lines, and openings, then export corrected `scene.json`.
 
 ## Output Expectations
 
 For each project, provide:
-- `scene.json` with explicit assumptions and locked unknown structural status.
+- `scene.json` with `wallGraph`, explicit assumptions, and locked unknown structural status.
 - A generated Three.js preview project.
 - A list of walls/openings that need user or professional confirmation.
 - A demolition plan JSON only when the user marks walls as verified non-load-bearing.

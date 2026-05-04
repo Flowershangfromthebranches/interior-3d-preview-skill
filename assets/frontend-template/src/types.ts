@@ -20,6 +20,7 @@ export type FloorPlanOverlay = {
 export type RoomType = 'living' | 'kitchen' | 'bedroom' | 'bath' | 'balcony' | 'utility' | 'entry' | 'closet' | 'other';
 
 export type StructuralStatus = 'loadBearing' | 'nonLoadBearing' | 'unknown';
+export type WallNodeSource = 'imported' | 'generated' | 'manual' | 'trace';
 
 export type Room = {
   id: string;
@@ -46,6 +47,33 @@ export type WallSegment = {
   structuralStatus: StructuralStatus;
   demolishable?: boolean;
   exterior?: boolean;
+};
+
+export type WallNode = {
+  id: string;
+  point: Point2;
+  locked?: boolean;
+  source?: WallNodeSource;
+};
+
+export type WallLine = {
+  id: string;
+  name: string;
+  startNodeId: string;
+  endNodeId: string;
+  thickness?: number;
+  height?: number;
+  material?: string;
+  roomIds?: string[];
+  structuralStatus: StructuralStatus;
+  demolishable?: boolean;
+  exterior?: boolean;
+  sourceSegmentIds?: string[];
+};
+
+export type WallGraph = {
+  nodes: WallNode[];
+  walls: WallLine[];
 };
 
 export type WallOpening = {
@@ -101,4 +129,21 @@ export type SceneData = {
   wallOpenings?: WallOpening[];
   renovationPlan?: RenovationPlan;
   furniture?: Furniture[];
+  wallGraph?: WallGraph;
+};
+
+export type SceneDiagnostics = {
+  duplicateWalls: string[];
+  danglingNodes: string[];
+  overlappingWalls: string[];
+  openingErrors: string[];
+  missingRoomRefs: string[];
+};
+
+export type AdjustmentState = {
+  selectedNodeId?: string;
+  selectedWallId?: string;
+  selectedOpeningId?: string;
+  snap: number;
+  overlayOpacity?: number;
 };

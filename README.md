@@ -1,17 +1,19 @@
 # Interior Hard-Renovation Preview Skill
 
-`interior-3d-preview` is a Codex skill and Three.js template for rough-room hard-renovation previews. It turns a measured floor plan into a navigable 3D shell model with walls, doors, windows, locked structural status, demolition simulation, and area measurement.
+`interior-3d-preview` is a Codex skill and Three.js template for rough-room hard-renovation previews. It turns a calibrated floor plan into a navigable 3D shell model with topology-checked walls, doors, windows, locked structural status, demolition simulation, wall measurement, area measurement, and manual model adjustment.
 
-V3 deliberately removes the soft-furnishing focus. Furniture can change any time; wall removal, openings, appliance niches, and built-in dimensions are the decisions that need clearer engineering preview.
+V4 deliberately focuses on hard-renovation decisions. Furniture can change any time; wall removal, openings, appliance niches, and built-in dimensions are the decisions that need clearer engineering preview.
 
 ## What It Does
 
 - Builds a 3D rough-room model from floor-plan dimensions.
+- Normalizes walls into a shared-node `wallGraph` so corners and T-junctions are checked instead of visually patched.
 - Renders wall segments with real visible door, window, and passage openings.
 - Locks unknown and load-bearing walls by default.
 - Lets users mark a verified non-load-bearing wall and simulate demolition.
 - Keeps the original model immutable; simulated changes live in `renovationPlan`.
-- Supports top-down measurement boxes for length, width, height, area, and volume.
+- Supports wall-click measurement and top-down measurement boxes.
+- Adds adjustment mode for dragging nodes, moving wall lines, editing openings, tracing missing walls, calibrating uploaded floor plans, and exporting corrected `scene.json`.
 - Provides room jump buttons for first-person inspection.
 
 ## Safety Boundary
@@ -43,7 +45,9 @@ If structural status is missing, ask the user for developer drawings, property-m
 │   ├── floorplan-to-3d.md
 │   ├── hard-renovation-safety.md
 │   └── image-model-providers.md
-└── scripts/create_project.py
+└── scripts/
+    ├── create_project.py
+    └── validate_scene.py
 ```
 
 ## Install The Skill
@@ -65,8 +69,8 @@ python3 ~/.codex/skills/.system/skill-creator/scripts/quick_validate.py ~/.codex
 From the repository root:
 
 ```bash
-python3 scripts/create_project.py --out /tmp/interior-hard-renovation-v3 --force
-cd /tmp/interior-hard-renovation-v3
+python3 scripts/create_project.py --out /tmp/interior-hard-renovation-v4 --force
+cd /tmp/interior-hard-renovation-v4
 npm install
 npm run dev
 ```
@@ -77,12 +81,16 @@ The generated project includes:
 - `public/floorplans/apartment-hard-renovation.jpg`
 - wall/opening model
 - demolition plan state
-- measurement tool
+- wall and area measurement tools
+- topology diagnostics
+- adjustment mode
 - room navigation
 
 ## Build And Check
 
 ```bash
+python3 scripts/validate_scene.py assets/frontend-template/public/scene.json
+cd assets/frontend-template
 npm run typecheck
 npm run build
 ```
@@ -91,13 +99,14 @@ Use `npm run preview` after building when you want a production preview server.
 
 ## Demo
 
-The default V3 demo uses `20180116095635_6875.jpg` as a public sample asset. The scene is manually traced from the visible labels and assumes:
+The default V4 demo uses `20180116095635_6875.jpg` as a public sample asset. The scene is manually traced from the visible labels and assumes:
 
 - outer plan envelope: about `15.16m x 11.64m`
 - default ceiling height: `2.8m`
 - default wall thickness: `0.18m`
 - door and window dimensions are approximate
 - every unverified wall starts as locked
+- the bundled topology has `0` duplicate walls, `0` dangling nodes, and `0` opening errors under `scripts/validate_scene.py`
 
 Included spaces:
 
@@ -118,11 +127,25 @@ Included spaces:
 
 `SceneData` now focuses on hard-renovation data:
 
-- `wallSegments`: explicit wall line segments with height, thickness, and structural status
+- `wallGraph`: shared `nodes` and `walls`; this is the preferred V4 model
+- `wallSegments`: compatibility export generated from `wallGraph`
 - `wallOpenings`: door/window/passage openings tied to wall IDs
 - `renovationPlan`: simulated demolition, structural overrides, measurement boxes
 - `floorPlanOverlay.cropPx`: crop source plan margins before aligning overlay
 - `rooms`: navigation and floor zones, not duplicated wall generators
+
+## Adjustment Workflow
+
+1. Open top-down mode.
+2. Use the upload button to import a floor plan image, or use the bundled demo.
+3. Use calibration mode to click two points with a known real-world length and enter meters.
+4. Turn on adjustment mode:
+   - Drag blue nodes for corners and T-junctions.
+   - Drag cyan wall handles to move a wall line.
+   - Drag door/window handles along their wall.
+   - Use the side panel for exact thickness, height, structure status, and opening dimensions.
+   - Use trace-wall mode to add missing walls.
+5. Export `scene.json` and run `scripts/validate_scene.py` before using the result as a demo or project input.
 
 See `references/floorplan-to-3d.md` for schema examples and modeling rules.
 
@@ -142,8 +165,9 @@ Before committing:
 
 ```bash
 python3 ~/.codex/skills/.system/skill-creator/scripts/quick_validate.py .
-python3 scripts/create_project.py --out /tmp/interior-hard-renovation-v3 --force
-cd /tmp/interior-hard-renovation-v3
+python3 scripts/validate_scene.py assets/frontend-template/public/scene.json
+python3 scripts/create_project.py --out /tmp/interior-hard-renovation-v4 --force
+cd /tmp/interior-hard-renovation-v4
 npm install
 npm run typecheck
 npm run build

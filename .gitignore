@@ -1,0 +1,6 @@
+node_modules/
+dist/
+.DS_Store
+assets/frontend-template/node_modules/
+assets/frontend-template/package-lock.json
+*.tsbuildinfo
